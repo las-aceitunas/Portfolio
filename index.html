@@ -1,671 +1,282 @@
-<!DOCTYPE html>
-<html lang="es-AR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luz & Meme — Dupla creativa</title>
-<meta name="description" content="Luz & Meme, dupla creativa publicitaria. Copy y arte. Ideas con carozo.">
-<meta property="og:title" content="Luz & Meme — Dupla creativa">
-<meta property="og:description" content="Ideas con carozo. Portfolio de nuestra dupla creativa.">
-<meta property="og:image" content="assets/img/og.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='56' rx='32' ry='40' fill='%235E6B2C'/%3E%3Cellipse cx='50' cy='22' rx='13' ry='8' fill='%23D9472B'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --crema:#F3ECDB; --papel:#FBF7EE;
-    --oliva:#5E6B2C; --oliva-osc:#3B4320; --oliva-clara:#B5BE7A;
-    --bordo:#6E1F30; --bordo-osc:#3E1019; --morron:#D9472B;
-    --tinta:#221D19; --gris:#6F675C; --linea:rgba(34,29,25,.15);
-    --serif:"Fraunces",Georgia,serif; --sans:"DM Sans",system-ui,-apple-system,sans-serif;
-    --radio:22px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);background:var(--crema);color:var(--tinta);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
-  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.08;mix-blend-mode:multiply;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-  img,video,iframe{display:block;max-width:100%}
-  a{color:inherit}
-  ::selection{background:var(--oliva);color:var(--crema)}
-  h1,h2,h3,h4{font-family:var(--serif);font-weight:800;line-height:1.02;letter-spacing:-.01em}
-  h1 em,h2 em{font-style:italic;font-weight:700;color:var(--bordo)}
-  .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--oliva)}
-
-  /* NAV */
-  nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:16px 6vw;background:rgba(243,236,219,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
-  .logo{font-family:var(--serif);font-weight:800;font-style:italic;font-size:1.4rem;background:none;border:0;cursor:pointer;color:var(--bordo);display:flex;align-items:center;gap:8px}
-  .logo svg{width:20px;aspect-ratio:100/130;transform:rotate(-15deg)}
-  .logo.giro{animation:giro .5s ease}
-  @keyframes giro{50%{transform:rotateX(90deg)}}
-  .amp{color:var(--oliva)}
-  nav ul{display:flex;gap:28px;list-style:none}
-  nav ul a{text-decoration:none;font-size:.95rem;font-weight:500}
-  nav ul a:hover{color:var(--bordo)}
-
-  /* HERO */
-  .hero{min-height:calc(100vh - 70px);display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:4vw;padding:60px 6vw 90px}
-  .hero h1{font-size:clamp(3.2rem,10vw,8.5rem);margin:18px 0 26px;color:var(--oliva-osc)}
-  .lead{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:42ch;color:var(--gris)}
-  .lead strong{color:var(--tinta)}
-  .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;background:var(--bordo);color:var(--crema);text-decoration:none;font:inherit;font-weight:700;border:2px solid var(--bordo);cursor:pointer;transition:transform .2s,background .2s,color .2s}
-  .btn:hover{transform:translateY(-2px);background:var(--bordo-osc);border-color:var(--bordo-osc)}
-  .btn-linea{background:transparent;color:var(--bordo)}
-  .btn-linea:hover{background:var(--bordo);color:var(--crema)}
-  .frasco{position:relative;aspect-ratio:1;width:100%;max-width:440px;justify-self:center}
-  .frasco .o{position:absolute;width:44%;aspect-ratio:100/130;filter:drop-shadow(0 18px 22px rgba(34,29,25,.25))}
-  .frasco .o1{left:14%;top:20%;rotate:-18deg;animation:flotar 6s ease-in-out infinite}
-  .frasco .o2{right:12%;top:30%;rotate:22deg;animation:flotar 6s ease-in-out -3s infinite}
-  @keyframes flotar{50%{translate:0 -14px}}
-  .sello{position:absolute;inset:0;width:100%;height:100%;animation:girar 24s linear infinite}
-  .sello text{font-family:var(--sans);font-weight:700;font-size:6.4px;fill:var(--bordo)}
-  @keyframes girar{to{transform:rotate(360deg)}}
-
-  /* CINTA */
-  .cinta{background:var(--bordo);color:var(--crema);overflow:hidden;padding:14px 0;border-block:2px solid var(--tinta);transform:rotate(-1.2deg);margin:0 -2vw}
-  .cinta-track{display:flex;width:max-content;animation:cinta 30s linear infinite}
-  .cinta span{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(1.2rem,2.4vw,1.9rem);padding-right:.6em;white-space:nowrap}
-  .cinta i{color:var(--oliva-clara);font-style:normal}
-  @keyframes cinta{to{transform:translateX(-50%)}}
-
-  /* SECCIONES */
-  section{padding:120px 6vw}
-  .sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:48px}
-  h2{font-size:clamp(2.4rem,6vw,4.6rem);color:var(--oliva-osc);margin-top:12px}
-  .sec-head p{max-width:44ch;color:var(--gris);font-size:1.05rem}
-
-  /* NOSOTRAS */
-  .nosotras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:28px}
-  .persona{border-radius:var(--radio);padding:34px;color:var(--crema);min-height:420px;display:flex;flex-direction:column;position:relative;overflow:hidden}
-  .persona.verde{background:var(--oliva)}
-  .persona.negra{background:var(--bordo-osc)}
-  .persona .foto{width:112px;height:112px;border-radius:50%;object-fit:cover;border:3px solid var(--crema);margin-bottom:22px}
-  .persona .foto-oliva{width:74px;aspect-ratio:100/130;margin-bottom:22px;rotate:-14deg}
-  .persona small{letter-spacing:.2em;text-transform:uppercase;font-weight:700;font-size:.75rem;opacity:.75}
-  .persona h3{font-size:clamp(2rem,4vw,2.6rem);margin:6px 0 14px}
-  .persona p{opacity:.9;flex:1}
-  .persona .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-  .pill{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:999px;border:1.5px solid currentColor;text-decoration:none;font-weight:700;font-size:.88rem;transition:.2s}
-  .persona .pill:hover{background:var(--crema);color:var(--tinta)}
-  .pill.falta{border-style:dashed;opacity:.55;pointer-events:none}
-  .pendiente{font-style:italic;opacity:.6;border-bottom:1px dashed currentColor}
-
-  /* IDEAS */
-  .filtros{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
-  .filtros button{font:inherit;font-weight:600;font-size:.92rem;padding:9px 20px;border-radius:999px;border:1.5px solid var(--oliva-osc);background:transparent;color:var(--oliva-osc);cursor:pointer;transition:.2s}
-  .filtros button:hover{background:rgba(94,107,44,.12)}
-  .filtros button.activo{background:var(--oliva-osc);color:var(--crema)}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:28px}
-  .card{background:var(--papel);border:1.5px solid var(--tinta);border-radius:var(--radio);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
-  .card:hover,.card:focus-visible{transform:translate(-4px,-4px);box-shadow:6px 6px 0 var(--bordo);outline:none}
-  .portada{aspect-ratio:4/3;position:relative;overflow:hidden}
-  .portada img{width:100%;height:100%;object-fit:cover}
-  .portada.generada{display:flex;align-items:flex-end;padding:22px}
-  .portada-titulo{font-family:var(--serif);font-weight:800;font-style:italic;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1;position:relative;z-index:1;max-width:78%}
-  .portada-oliva{position:absolute;width:36%;aspect-ratio:100/130;right:-3%;top:-6%;rotate:24deg;transition:transform .5s}
-  .card:hover .portada-oliva{transform:rotate(-14deg) translateY(10px)}
-  .card-body{padding:20px 22px 24px;border-top:1.5px solid var(--tinta);flex:1}
-  .tag{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--bordo)}
-  .card h3{font-size:1.5rem;margin:8px 0 6px}
-  .card p{color:var(--gris);font-size:.95rem}
-  .premio{display:inline-block;margin-top:14px;font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--oliva-clara);color:var(--oliva-osc)}
-
-  /* MODAL */
-  .modal{position:fixed;inset:0;z-index:50;background:rgba(34,29,25,.72);display:none;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow-y:auto}
-  .modal.abierto{display:flex}
-  .modal-box{background:var(--crema);border-radius:28px;max-width:960px;width:100%;position:relative;overflow:hidden;animation:subir .35s ease}
-  @keyframes subir{from{opacity:0;transform:translateY(30px)}}
-  .modal .portada{aspect-ratio:16/7}
-  .modal .portada.generada{padding:clamp(22px,4vw,44px)}
-  .modal .portada-titulo{font-size:clamp(2.2rem,6vw,4.2rem)}
-  .modal .portada-oliva{width:20%}
-  .cerrar{position:absolute;top:16px;right:16px;z-index:2;width:44px;height:44px;border-radius:50%;border:none;background:var(--crema);color:var(--tinta);font-size:1.5rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2)}
-  .modal-body{padding:clamp(24px,5vw,56px)}
-  .modal-body h3{font-size:clamp(2rem,5vw,3.4rem);color:var(--oliva-osc);margin:10px 0 20px}
-  .meta{display:flex;flex-wrap:wrap;gap:12px 40px;padding:18px 0;border-block:1.5px solid var(--linea);margin-bottom:28px}
-  .meta dt{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--bordo)}
-  .meta dd{font-weight:600}
-  .desc{font-size:1.15rem;max-width:62ch;margin-bottom:30px}
-  .concepto{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3vw,2rem);color:var(--bordo);line-height:1.2;padding-left:20px;border-left:4px solid var(--oliva);margin-bottom:40px}
-  .concepto small{display:block;font-family:var(--sans);font-style:normal;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--oliva);margin-bottom:6px}
-  .bloques{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px;margin-bottom:40px}
-  .bloque{background:var(--papel);border-radius:18px;padding:22px}
-  .bloque h4{font-size:1.2rem;color:var(--bordo);margin-bottom:8px}
-  .sub-titulo{font-size:1.6rem;color:var(--oliva-osc);margin-bottom:16px}
-  .titulares{display:grid;gap:14px;margin-bottom:40px}
-  .titulares blockquote{background:var(--bordo);color:var(--crema);border-radius:18px;padding:26px 28px;font-family:var(--serif);font-size:clamp(1.1rem,2.2vw,1.45rem);line-height:1.35}
-  .titulares blockquote.vacio{background:transparent;color:var(--gris);border:2px dashed rgba(34,29,25,.3);font-style:italic;font-size:1rem}
-  .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px;margin-bottom:40px}
-  .media{grid-column:1/-1}
-  .media.medio,.media.vertical{grid-column:auto}
-  .media img,.media video{width:100%;border-radius:16px}
-  .media iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;background:var(--tinta)}
-  .media.vertical img,.media.vertical video,.media.vertical iframe{aspect-ratio:9/16;width:min(100%,380px);margin:0 auto;object-fit:cover}
-  .media figcaption{font-size:.85rem;color:var(--gris);margin-top:8px;text-align:center}
-  .hueco{border:2px dashed rgba(34,29,25,.3);border-radius:16px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--gris);font-weight:600;text-align:center;padding:20px}
-  .media.vertical .hueco{aspect-ratio:9/16;min-height:0;width:min(100%,300px);margin:0 auto}
-  .hueco small{font-weight:400;text-transform:uppercase;letter-spacing:.15em;font-size:.7rem}
-  .extra{margin-bottom:40px}
-  .extra p{max-width:62ch}
-  .links-proy{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
-  .links-proy .pill{color:var(--bordo)}
-  .links-proy .pill:hover{background:var(--bordo);color:var(--crema)}
-  .navegar{display:flex;justify-content:space-between;gap:12px;border-top:1.5px solid var(--linea);padding-top:24px}
-  .navegar button{background:none;border:none;font-family:var(--serif);font-weight:700;font-style:italic;font-size:1.15rem;color:var(--oliva-osc);cursor:pointer;text-align:left}
-  .navegar button:last-child{text-align:right}
-  .navegar button:hover{color:var(--bordo)}
-
-  /* CONTACTO */
-  #contacto{background:var(--oliva-osc);color:var(--crema);border-radius:36px 36px 0 0}
-  #contacto h2{color:var(--crema)}
-  #contacto h2 em{color:var(--oliva-clara)}
-  #contacto .eyebrow{color:var(--oliva-clara)}
-  .contacto{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:start}
-  .contacto .sub{opacity:.8;margin:18px 0 30px;max-width:40ch}
-  .mail-grande{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(1.3rem,2.8vw,2rem);word-break:break-all;text-decoration:none;border-bottom:2px solid var(--oliva-clara)}
-  .redes{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
-  .redes .pill:hover{background:var(--crema);color:var(--oliva-osc)}
-  form{display:grid;gap:14px}
-  input,textarea{font:inherit;background:rgba(243,236,219,.08);border:1.5px solid rgba(243,236,219,.3);color:var(--crema);padding:14px 18px;border-radius:14px}
-  input::placeholder,textarea::placeholder{color:rgba(243,236,219,.55)}
-  input:focus,textarea:focus{outline:none;border-color:var(--oliva-clara)}
-  textarea{min-height:140px;resize:vertical}
-  #contacto .btn{background:var(--crema);color:var(--oliva-osc);border-color:var(--crema);justify-self:start}
-  .estado{font-size:.9rem;min-height:1.4em}
-  footer{background:var(--oliva-osc);color:rgba(243,236,219,.7);padding:28px 6vw 34px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.88rem;border-top:1px solid rgba(243,236,219,.15)}
-
-  @media (max-width:820px){
-    nav ul{gap:16px}
-    nav ul a{font-size:.85rem}
-    .hero{grid-template-columns:1fr;min-height:auto;padding-top:40px}
-    .frasco{max-width:300px}
-    .contacto{grid-template-columns:1fr}
-    section{padding:84px 6vw}
-  }
-  @media (max-width:420px){ nav ul li:first-child{display:none} }
-  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
-</head>
-<body>
-
-<!-- Aceitunas (se reutilizan en todo el sitio) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="oliva-verde" viewBox="0 0 100 130">
-      <ellipse cx="50" cy="68" rx="42" ry="56" fill="#6E7B33"/>
-      <ellipse cx="34" cy="56" rx="9" ry="20" fill="#B5BE7A" opacity=".5" transform="rotate(-18 34 56)"/>
-      <ellipse cx="50" cy="20" rx="18" ry="10" fill="#D9472B"/>
-      <ellipse cx="50" cy="18" rx="10" ry="5" fill="#B0311B"/>
-    </symbol>
-    <symbol id="oliva-negra" viewBox="0 0 100 130">
-      <ellipse cx="50" cy="68" rx="42" ry="56" fill="#3E1019"/>
-      <ellipse cx="34" cy="56" rx="8" ry="18" fill="#8A3A4C" opacity=".6" transform="rotate(-18 34 56)"/>
-      <ellipse cx="50" cy="20" rx="12" ry="7" fill="#1A060B"/>
-    </symbol>
-  </defs>
-</svg>
-
-<nav>
-  <button class="logo" id="logo" title="Tocá para cambiar el orden">
-    <svg><use href="#oliva-verde"/></svg><span data-nombres=" & "></span>
-  </button>
-  <ul>
-    <li><a href="#nosotras">Nosotras</a></li>
-    <li><a href="#ideas">Ideas</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-</nav>
-
-<header class="hero">
-  <div>
-    <p class="eyebrow">Dupla creativa · Copy & Arte</p>
-    <h1>Ideas con <em>carozo</em>.</h1>
-    <p class="lead">Somos <strong data-nombres=" y "></strong>, dupla creativa publicitaria. Buscamos ideas simples, con sabor y con algo adentro: de las que se quedan en la cabeza.</p>
-    <div class="ctas">
-      <a class="btn" href="#ideas">Ver ideas</a>
-      <a class="btn btn-linea" href="#nosotras">Conocernos</a>
+<!doctype html>
+<html lang="es">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20261123-02-abbfbe5","C":{"ABeeZee":"YADK31-VBBc,1","Abel":"YAHO2Ehol3g,0","Abhaya Libre":"YAFdJvwa-l0,0","Abril Fatface":"YACgEZbkUVE,0","Aclonica":"YAHO2OEKYj0,0","Acme":"YAHO2Gflqzo,0","Actor":"YAHO2N0IV_4,0","Adamina":"YAHO2Ko8ddg,0","Advent Pro":"YAFdJvNZdCk,0","Afacad":"YAHO2HaK_fU,0","Afacad Flux":"YAHO2DjbA6Y,0","Agrandir":"YAFdJpYuLss,0","Agrandir Grand":"YAFdJnQq22A,0","Aileron":"YAFdJn5d8s0,0","Akshar":"YAGWNF0jApg,0","akzidenz-grotesk":"YAFcfhwp99E,0","Alata":"YAD1aLikJo8,0","Albert Sans":"YAHO2HRfeh4,0","Alegreya":"YAFdJs07v-8,0","Alegreya Sans":"YAFdJvgJ5TU,0","Alegreya Sans SC":"YAFdJuaTEaM,0","Alegreya SC":"YACgEen8jXo,0","Aleo":"YAFdJg_txOU,0","Alex Brush":"YAE2gr0Mbng,0","Alexandria":"YAGVt-AWBcU,0","Alfa Slab One":"YACgEYS9sJU,0","Alice":"YALBszUSD-E,0","Alike":"YACgEdeqDWI,0","Allison":"YAG5KfE49h8,0","Allura":"YACgEap1YR0,0","Almarai":"YAFdJuZe0mI,0","Almendra":"YAHO2Dyhotk,0","Alumni Sans":"YAHO2DByoho,0","Alyamama":"YAHMLFefkMM,0","Amaranth":"YACgEaBTFMQ,0","Amatic SC":"YACgEbSBm0k,0","Amiri":"YAEWgjWFb1M,0","Amiri Quran":"YAHO2Enz6cg,0","Amita":"YADK309xYYo,1","Andika":"YACkoFAye4w,0","Anek Bangla":"YAGVuloYrvI,0","Anek Gujarati":"YAHO2NTD_LM,0","Anek Latin":"YAHO2C6lVnU,0","Anek Malayalam":"YAHO2JwdTAg,0","Anek Telugu":"YAHO2KVu8lI,0","Angsana New":"YAFcflTHDNQ,0","Anonymous Pro":"YACgEV9owk4,0","Antic":"YACgEeT8btw,0","Antic Didone":"YADK37j5kj0,0","Antic Slab":"YAHO2HJeTP0,0","Anton":"YACgEcYqQ-A,0","Antonio":"YAFdJjZxcpY,0","Anuphan":"YAHO2IhZ4E0,0","Anybody":"YAHO2MTsics,0","Aptos":"YAGi2jFvvq4,1","Arapey":"YADK32AK2Uk,1","Arbutus Slab":"YADK3z8rjvs,0","Architects Daughter":"YACgEc9BFCs,0","Archive":"YAD0s3O1iG4,1","Archivo":"YAHO2-t-jNE,0","Archivo Black":"YACgEZulLoA,0","Archivo Narrow":"YACgEa-oJH8,0","Aref Ruqaa":"YAHO2NMqGdM,0","Arial":"YAGyDvJ_4Ts,0","Arial Nova":"YAFcflVm6HM,0","Arima":"YAHMLEO2aZY,0","Arimo":"YACgEZ1cb1Q,0","Arsenal":"YADK3_DWcOc,0","Arsenal SC":"YAHO2BfKrb0,0","Arvo":"YACgEf17hXM,0","Asap":"YAFdJr0OaFw,0","Asap Condensed":"YAD1fmY3NpE,0","Assistant":"YAFdtfahXt8,0","Asul":"YAHO2ADJIM8,0","Athiti":"YAFdJnV1R9U,0","Atkinson Hyperlegible":"YAFge7Z-F6s,0","Atkinson Hyperlegible Mono":"YAHO2IygCXM,0","Atkinson Hyperlegible Next":"YAHO2IeQVB0,0","Audiowide":"YAHO2MsoafU,0","Avenir":"YAFcfmNq6UY,0","Average":"YAHO2OL2sMo,0","Azeret Mono":"YAHO2EIdDP0,0","B612":"YAD1b-1Hfc8,0","Bacasime Antique":"YAHO2JjJq4o,0","Bad Script":"YADK31ojH6A,1","Bagel Fat One":"YAFyG3A11Bw,0","Bai Jamjuree":"YAFdJjI5olU,0","Ballet":"YAGXhJ7-dYY,0","Baloo 2":"YAHO2IcQUcM,0","Baloo Bhai 2":"YAHO2IFnsSQ,0","Baloo Bhaijaan 2":"YAHO2NwTj3Y,0","Baloo Chettan 2":"YAHO2M8yj2k,0","Baloo Da 2":"YAHO2LicHPY,0","Baloo Paaji 2":"YAHO2NEYVDY,0","Baloo Tamma 2":"YAHO2H3zy38,0","Baloo Thambi 2":"YAHO2FzxyTU,0","Balsamiq Sans":"YAE3C_w4eo8,0","Bangers":"YAD5qTdjGKo,1","Barlow":"YAFdJsyuOPM,1","Barlow Condensed":"YAFdJljEuFc,0","Barlow Semi Condensed":"YAFdJu55qXI,0","Baskervville":"YAHO2JTYNKo,0","Be Vietnam":"YAFdJvSWHmc,0","Beau Rivage":"YAHO2NDDGu0,0","Bebas Neue":"YACgESME5ew,0","Belanosima":"YAHO2KW8vyU,0","Bellefair":"YADSJ8TFXwA,0","Belleza":"YADK3w_fTc4,0","Bellota Text":"YAHO2JzigLo,0","BenchNine":"YAHO2Gl7yMc,0","Bentham":"YADK3_BbjXo,0","Berkshire Swash":"YACgEa7uPMI,0","Besley":"YAHO2BTXWYc,0","Beth Ellen":"YAD1b5m4a2U,0","Bevan":"YACkoDaMIbc,0","Big Shoulders Display":"YAFdJs8L2aw,0","BioRhyme":"YAHO2OnVvkA,0","Birthstone":"YAGXhLyeE6I,0","Biryani":"YAFdtZ_PRAs,0","Bitter":"YACkoOF0Xck,0","BIZ UDPGothic":"YAGWY3VAK4Q,0","Black Mango":"YAFdJkJYP7I,1","Black Ops One":"YACgEaY4FIU,0","Blinker":"YAFdJoBYX9o,0","Bodoni Moda":"YAHO2C7VUJE,0","Boldonse":"YAHXbGMR2YM,0","Boogaloo":"YAHO2MTwH5g,0","Borel":"YAFyL1DOvfo,0","Bowlby One":"YAHO2EunPos,0","Bowlby One SC":"YAHO2J38FUs,0","Braah One":"YAHO2Ag4_wQ,0","Brake":"YAECFhPpDI8,0","Breathing":"YAEl409VGBQ,0","Bree Serif":"YACkoD1yZN0,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Bricolage Grotesque Condensed":"YAFyMaVjTlw,0","Brightwall":"YAEl49DnZBU,0","Browallia New":"YAFcf0GWFlE,0","Bruno Ace SC":"YAHO2BP7y3k,0","Bubblegum Sans":"YAHO2JdFc_U,0","Bungee":"YALBszL9wLA,0","Bungee Outline":"YALBsyhE_6k,0","Bungee Shade":"YACkoPYyrRk,0","Cabin":"YAFdJnEgsb0,0","Cabin Condensed":"YAHO2F-FVVw,0","Cairo":"YAFdtXpDzlQ,0","Cal Sans":"YAHO2GqQss4,0","Caladea":"YAD1hHx0kVU,0","Calibri":"YAFcfhdOoGk,0","Calistoga":"YAD1aIFxe3I,1","Cambria":"YAFcfgNlM2Y,0","Cantarell":"YAHO2LSCGX4,0","Canva Sans":"YAFdJjTk5UU,1","Canva Sans Display":"YAFTjyMT8Hc,0","Caprasimo":"YAHO2PYTkbo,0","Capriola":"YALBs4liG7k,0","Cardo":"YACkoGIT9qo,0","Carlito":"YACkoIZXsrc,0","Carter One":"YACgEZJ1Flw,0","Cascadia Code":"YAHO2TBzHlE,0","Cascadia Mono":"YAHO2QKvf6g,0","Castoro":"YAHO2cDcmVM,0","Catamaran":"YAFdJhPTLAc,0","Catchy Mager":"YAEZxhW1Plk,0","Caveat":"YALBs2ploWQ,0","Caveat Brush":"YALBs8ZVRhw,0","Cedarville Cursive":"YAHO2UrHGFQ,0","Century Gothic Paneuropean":"YAFcfhkwO-0,0","Chakra Petch":"YAD1fCkY3IQ,0","Changa":"YAFdJtbG8fw,0","Changa One":"YAHO2WdsbtM,0","Chango":"YADK37RW0po,0","Charis SIL":"YAGvf-G3GGU,0","Charm":"YAD1b_s4o-w,0","Chelsea Market":"YAHO2UOd5sY,0","Cherry Bomb One":"YAFyMfi5fyQ,0","Cherry Swash":"YAHO2RnHe3o,0","Chewy":"YACgEZfALnA,0","Chiron GoRound TC":"YAHO2Vkw-3A,0","Chivo":"YAHO2WvGfDs,0","Chivo Mono":"YAHO2Qd3y5g,0","Chocolate Classical Sans":"YAHO2Rxoh6A,0","Chonburi":"YALBsz_RTwU,0","Cinzel":"YACgEeV8bIQ,0","Cinzel Decorative":"YAEe9XbWpNs,0","Circe":"YAEw10H5958,0","Clear Sans":"YAFdJoLIdPI,0","Climate Crisis":"YAFdJnbiwgQ,0","Cocomat Pro":"YAFdJu9rg-E,0","Coiny":"YACkoOrpjtg,0","Comfortaa":"YAFdJoWmhxU,0","Comic Neue":"YAHO2VMiyZo,0","Comic Sans MS":"YAFcfvtOAUY,1","Coming Soon":"YACgEQDqBLk,0","Commissioner":"YAHO2RRI-KE,0","Concert One":"YAFyG1vOkaw,0","Consolas":"YAFcfu6YYdE,0","Cookie":"YAHO2TxA9Mk,0","Cooper Hewitt":"YAFdJsxY6B0,0","Corben":"YADK3waYnkQ,2","Cordia New":"YAFcf2VdcIk,0","Cormorant Garamond":"YAFdJhX-538,0","Cormorant Infant":"YAHO2cgbXjc,0","Cormorant SC":"YAFdJg7KuRM,0","Cormorant Unicase":"YAHO2b4ohVo,0","Cormorant Upright":"YAHO2ZEBi5c,0","Courgette":"YACgEU5nS9M,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","Cousine":"YADK35VyDYU,0","Covered By Your Grace":"YAHO2drjx38,0","Crete Round":"YAHO2Uu9SvI,0","Crimson Pro":"YAFdJsEGkW0,0","Crimson Text":"YAHO2RsfBzg,0","Cuprum":"YACkoB3fESg,0","Cutive":"YADK334gwRI,0","Cutive Mono":"YAHO2cov6H4,0","Damion":"YAHO2SxDErM,0","Dancing Script":"YALBs2pfuW0,0","Darker Grotesque":"YAD1acp_tgc,1","David Libre":"YAFdJop2L90,0","DejaVu Sans":"YAFdtfpl0Yc,0","Delius":"YAHO2f1B8B4,0","Dhurjati":"YAHO2RElIME,0","Didact Gothic":"YALBs-mIj2o,0","DM Mono":"YAHO2SGpw0w,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Domine":"YAHO2bbCOA4,0","Dongle":"YAGXDU1dmuc,0","Doppio One":"YAHO2ckhWaI,0","Dosis":"YAFdte3F-n0,1","DotGothic16":"YAHO2fxQNHM,0","Droid Arabic Naskh":"YACkoKkaqXA,0","Droid Serif":"YACgEdYQidM,0","DynaPuff":"YAFyMRnxBDs,0","East Sea Dokdo":"YAHO2V39uyM,0","Eater":"YAHO2VpLF0c,0","EB Garamond":"YAFdJtfMD6Y,0","Economica":"YACgEeIOo5w,0","Eczar":"YAFdJrnVElk,0","Edo":"YADoUIDNzaE,1","Edu NSW ACT Cursive":"YAHO2UbwD8o,0","Edu SA Beginner":"YAHO2bMcrTo,0","El Messiri":"YAFdJoZarj8,0","Electrolize":"YAHO2RdxxhE,0","Elsie":"YAHO2XlmbCo,0","Encode Sans":"YAHO2R-vLyo,0","Encode Sans Condensed":"YAHO2RQWhbg,0","Epilogue":"YAHO2WWHRqI,0","Exo":"YAHO2c15ncY,0","Exo 2":"YAFdJor4M6A,1","Faculty Glyphic":"YAHO2ZuH1NQ,0","Fahkwang":"YAFdJp0SJos,0","Familjen Grotesk":"YAHO2ZriIzU,0","Fauna One":"YAHO2Y8x8zg,0","Faustina":"YAFdJnqy8Oc,0","feather":"YAFdJjALMPk,0","Figtree":"YAHO2b-mV7A,0","Finger Paint":"YADK3wExL94,0","Fira Code":"YAFdJsxBlTg,0","Fira Mono":"YAHO2bTKfjg,0","Fira Sans":"YAFdJnJKOPE,0","Fira Sans Condensed":"YAHMLJN-FcA,0","Fira Sans Extra Condensed":"YAHMLGqUb6Q,0","Fjalla One":"YAHO2VMyTKw,0","Fondamento":"YAHO2X_okmA,0","Forum":"YACgEcnnqB4,0","Fragment Mono":"YAHO2ZlYXZc,0","Francois One":"YADK3zbC6RM,0","Frank Ruhl Libre":"YAFdJiGIKxQ,0","Fraunces":"YAFdJpU7Kkk,0","Freckle Face":"YALBszwFbJg,0","Fredoka":"YACgEZml080,0","Freehand":"YACkoAZmUSg,0","Frutiger":"YAFcf7IGSfk,0","Fugaz One":"YAHO2f5L5K0,0","Funnel Display":"YAHO2TmVuEs,0","Funnel Sans":"YAHO2R0FK5U,0","Futura":"YAFcfgcNhWk,3","Gabarito":"YAHO2cD3JmI,0","Gaegu":"YAFdJj615Ls,0","Gamja Flower":"YADK39n_eyc,0","Gantari":"YAHO2WveuBo,0","Garamond":"YAFcfhlhK9c,0","Garet":"YAFdJi-0PQg,0","Gasoek One":"YAFyMaznfGo,0","Geist":"YAHO2SfKS30,0","Geist Mono":"YAHO2XOe8v8,0","Gelasio":"YAHO2e426-k,0","Gentium Book Plus":"YAHO2b-adyU,0","Gentium Plus":"YAGvf3_u0_Q,0","Geologica":"YAHMLpZ3y5c,0","Geom":"YAHMLFz7unQ,0","Georama":"YAHO21l9KR8,0","Georgia":"YAGzXkO0pEM,0","GFS Didot":"YADK39vXpyU,0","Gilda Display":"YADK34sD2QM,0","Gill Sans":"YAFcfnt9wqI,0","Gilroy":"YAFcf0f10mQ,0","Gistesy":"YAEEKKQrAAg,0","Glacial Indifference":"YACgETiWKS8,0","Gloock":"YAHO2WVhd0Q,0","Gloria Hallelujah":"YALBs50JjRs,0","Gochi Hand":"YACgEWWPgRQ,0","Gogol":"YAEw1oJoCwQ,0","Golden Hopes":"YAHNdVsGdn0,0","Goldman":"YAHO2TATES8,0","Golos Text":"YAHO2QlqAQk,0","Google Sans":"YAHO2dYZ4Uw,0","Google Sans Code":"YAHO2XdQwlA,0","Google Sans Flex":"YAHO2e8mtck,0","Gordita":"YAFdJpAlwLA,0","Gotham":"YAFcfr0ZwUA,0","Gotu":"YAEZNa_UrWs,0","Goudy Bookletter 1911":"YAHO2X7CqQQ,0","Gowun Batang":"YAGXDQtk-ic,0","Gowun Dodum":"YAGXDZ921io,0","Graduate":"YACgEajwz7Y,0","Grand Hotel":"YACgEckzDrA,0","Grandstander":"YAHO2bN2hd8,0","Gravitas One":"YAHO2WtqHRw,0","Great Vibes":"YACgEX27qLg,0","Grenze":"YAFdJpFWOZM,0","Grenze Gotisch":"YAHO2fI_o94,0","Gruppo":"YACgEbcz8MU,0","Gudea":"YAHO2WlVs30,0","Gugi":"YADK3-knzio,0","Hahmlet":"YAGXDTqs4Ac,0","Hammersmith One":"YACgEWNFnT4,0","Handlee":"YAHO2U9C-xI,0","Hanken Grotesk":"YAHO2VB9G0I,0","Heebo":"YAFdJqqaebw,0","Helvetica":"YAFcf7zkXN0,0","Helvetica Now Display":"YAFcfyB4XC8,0","Henny Penny":"YAHO2dlXoyw,0","Hepta Slab":"YAD1cDjjTFA,0","Hind Guntur":"YAFdJq1FbIc,0","Hind Madurai":"YAFdJtsMgQk,0","Hind Siliguri":"YAFdJodBWQk,0","Hind Vadodara":"YAFdJrnuAas,0","HK Grotesk":"YAFdJsjyMsM,0","Homemade Apple":"YADK3zBTjLs,0","Host Grotesk":"YAHO2VztvdY,0","Hubot Sans":"YAHO2cDVt0E,0","Huninn":"YAHO2dG1YxU,0","Ibarra Real Nova":"YAD1aDS1Jq8,0","IBM Plex Mono":"YAFdJkmvhGI,0","IBM Plex Sans":"YAFdJgT0SHI,0","IBM Plex Sans Arabic":"YAGVuEYCNg0,1","IBM Plex Sans Condensed":"YAFdJrPBof8,0","IBM Plex Sans JP":"YAGWY6rvaqo,0","IBM Plex Sans KR":"YAGXDbUrwEo,0","IBM Plex Sans Thai":"YAFdJkdZC28,0","IBM Plex Sans Thai Looped":"YAFdJui2sXU,0","IBM Plex Serif":"YAFdJt16xgA,0","IM Fell English":"YAHO2QB0QVo,0","IM Fell English SC":"YACgERmrc6I,0","IM Fell French Canon":"YAHO2bMvABs,0","Imbue":"YAGjgA104ww,0","Impact":"YAFcfnjI7Vk,0","Imperial Script":"YAHO2bXM53E,0","Inclusive Sans":"YAGzRvSP2H0,0","Inconsolata":"YAHO2SpO-5g,0","Indie Flower":"YAHO2aaUih8,0","Inria Sans":"YAHO2WaGA6A,0","Inria Serif":"YAD1aHa0r9w,0","Instrument Sans":"YAHO2bKyaSQ,0","Instrument Serif":"YAHFeOnZNEk,0","Intel One Mono":"YAHO2RYNRUQ,0","Inter":"YAFdJvSyp_k,3","Inter Tight":"YAHO2Wv04Hw,0","Istok Web":"YAHO2XNFLkI,0","Italiana":"YAHO2Toik_w,0","Italianno":"YADK33wZXP4,1","ITC Bauhaus":"YAFcfpZDFTo,0","Itim":"YAE0Z3ly4AQ,0","JA Jayagiri Sans":"YAEaXF9noCA,0","Jacques Francois":"YAHO2a5g66Q,0","Jersey 10":"YAHO2QXCPBA,0","Jersey 25":"YAHO2b0HdSo,0","JetBrains Mono":"YAFdJksXcAk,0","Jolly Lodger":"YAHO2U5HCA0,0","Josefin Sans":"YAFdJjvw9Ps,0","Josefin Slab":"YACgEQmaEIc,0","Jost":"YAHO2TSelXg,0","Jua":"YADK3-gZSDU,0","Judson":"YAHO2Te3_As,0","Julius Sans One":"YACgET-7cBI,0","Jura":"YAFdJmtyccY,0","K2D":"YAFdJm3q9Nw,0","Kadwa":"YALBswebFy8,0","Kaisei Decol":"YAGWY5xJxfk,0","Kalam":"YAFdJrEg2ic,0","Kalnia":"YAHO2ZebSDE,0","Kanit":"YAHO2TvSf7E,0","Kantumruy Pro":"YAHO2SVqwqY,0","Karantina":"YAHO2TVXfmM,0","Karla":"YAHO2V2NSXM,0","Kaushan Script":"YACgEbGmrJs,0","Khand":"YAFdJm18w3g,0","Khula":"YAFdJvaOkWI,0","Kiwi Maru":"YAFdJmm1njU,0","Klee One":"YAHO2dadxts,0","Knewave":"YACgEYSBEEA,0","Kodchasan":"YAFdJmfmzeo,0","Kosugi Maru":"YAEhL82apSM,0","Kreon":"YAHO2b-Z620,0","Kristi":"YAHO2bHz8po,0","Krona One":"YAHO2byEKN4,0","Krub":"YAFdJl9ACwk,0","Kufam":"YAGVuJN9X7k,0","Kulim Park":"YAHO2VNx1jc,0","Kumbh Sans":"YAHO2UjzjpM,0","La Belle Aurore":"YAHO2QKdLHU,0","Lalezar":"YACkoB188Y0,0","Lancelot":"YADK4HPrVfg,0","Lateef":"YADSJ_Lazxc,0","Lato":"YAFdJuFCnaw,0","LazyDog":"YAEK94THsCY,1","League Gothic":"YACgEZ1OEPI,0","League Spartan":"YACgEcnJpjs,0","Leckerli One":"YAGX4ddZAAg,0","Lemonada":"YAFdtQVfQCk,0","Lexend":"YAHO2SCkHoU,0","Lexend Deca":"YAD9UdTHECk,0","Lexend Exa":"YAD9UUZHL7I,0","Lexend Giga":"YAD9UYAqrOc,0","Lexend Mega":"YAD9UdrjgZw,0","Lexend Peta":"YAD9UbAW09Y,0","Lexend Zetta":"YAD9UYrErMw,0","Liberation Sans":"YACkoCpVbHs,0","Libertinus Sans":"YAHMLfZwtOs,0","Libre Baskerville":"YACgEUFdPdA,0","Libre Bodoni":"YAHO2fbN094,0","Libre Caslon Display":"YAHO2XhLmt0,0","Libre Caslon Text":"YAHO2USylHk,0","Libre Franklin":"YAFdJr3SNlU,1","Lilita One":"YACgEblklxo,0","Limelight":"YACgEUpkTXE,0","LINE Seed JP":"YAHO2d8yXa4,0","Literata":"YAD1b0SpOHQ,0","Literaturnaya":"YAEw2PHBjL0,0","Livvic":"YAFdJiLU_Ko,0","Lobster":"YAD8SnSjSFI,0","Lobster Two":"YACgEesdoec,0","Londrina Solid":"YAFdJnyMeQE,0","Lora":"YACgEXvxf8Q,0","Love Ya Like A Sister":"YAHO2WqclmE,0","Lovelace Text":"YAEp6DuM3Gw,0","Lucida Console":"YAFcfpZCfh8,0","Luckiest Guy":"YADK4PnlFRs,0","Lusitana":"YAHO2SveFfM,0","Luxurious Script":"YAGXhP81m8s,0","LXGW WenKai TC":"YAHO2ehQ5_o,0","M PLUS 1p":"YAHO2fozO7I,0","M PLUS 2":"YAHO2RUGZcQ,0","Ma Shan Zheng":"YAD1b3yES34,0","Mada":"YAFd-HxC1Y0,0","Maitree":"YAFdJh4v5pY,0","Mali":"YAFdJh7OuNE,0","Mangal":"YAFcf3pCl6E,0","Manrope":"YAHO2b2feC4,0","Mansalva":"YAD1aZCCYU8,1","Manuale":"YAHO2XO6VM0,0","Manufacturing Consent":"YAHO2Tdy8YQ,0","Marcellus":"YADK4L2nGbg,0","Marck Script":"YALBs9DBETo,0","Marhey":"YAGVt3FsiJE,0","Martel":"YAFdtY7FRH8,1","Martel Sans":"YAFdJnFZE_o,0","Martian Mono":"YAHO2YhUMkk,0","Mate":"YAHO2eaPuMk,0","Maven Pro":"YAFdJgCyb_c,0","Mea Culpa":"YAHO2UQx4WU,0","MedievalSharp":"YAHO2XoH9qQ,0","Megrim":"YACgEQu0pLY,0","Meiryo":"YAGmJPEz0BM,0","Merienda":"YAGXhISLJkY,0","Merriweather":"YACgEXvHxxs,0","Merriweather Sans":"YAFdJorZgto,1","Metal Mania":"YAHO2RakMsk,0","Metamorphous":"YAHO2VZfQ20,0","Metropolis":"YAD02dnyUJ4,1","Michroma":"YADK4IYX8vY,0","Miriam Libre":"YADK4A2U8KA,0","Mitr":"YAFdJh-DKf0,0","Mochiy Pop One":"YAGWZBVNvyY,0","Modak":"YALBs_cEz8M,0","Mogra":"YACkoLlIQu0,0","Mohave":"YAHO2a-kB9g,0","Momo Trust Sans":"YAHO2WLKNS0,0","Mona Sans":"YAHO2XGz2BM,0","Monda":"YADK34lACd0,1","Monoton":"YALBs_hWWG8,0","Monsieur La Doulaise":"YAHO2ZDmLzM,0","Mont":"YAFdJgul-2U,0","Montserrat":"YAFdtQi73Xs,0","Montserrat Alternates":"YAHO2d5URdI,0","Monument":"YAFdJgp7PFE,0","Mooli":"YAHO2QudnvU,0","More Sugar":"YAFdJkVWBPo,1","Moul":"YADK4IOwXpw,0","Mountains of Christmas":"YAHO2f6R-YA,0","Mozilla Headline":"YAHO2ZZLh-k,0","Mr Dafoe":"YACgEbw4BXM,0","Mrs Saint Delafield":"YAHO2Tnt53k,0","Ms Madi":"YAHO2SBc4rI,0","Mukta":"YAFdJjsZaSM,0","Mukta Mahee":"YAFdtVEME6c,0","Muli":"YAFdtZAC0Mk,0","Mulish":"YAHO28rytyw,0","Muller":"YAFdJriKtFM,0","Nanum Myeongjo":"YAFdJqiu4VY,0","Neucha":"YAEkTBQffFg,0","Neue Machina":"YAFdJl3zAt0,0","Neue Montreal":"YAFdJqX996o,0","Neuton":"YAFdtcDBvdA,0","New Rocker":"YAHO2YI8rWg,0","News Cycle":"YACkoEMGWek,0","Newsreader":"YAHCYkWCns8,0","Niramit":"YAFdJhxYZW4,0","Nirmala UI":"YAFcf161eM0,0","Nixie One":"YACgEUtNgZc,0","Nosifer":"YAHO2cgIgOc,0","Nothing You Could Do":"YAHO2WqRm_c,0","Noticia Text":"YACkoDm0xlE,0","Noto Color Emoji":"YAGumpcTCok,0","Noto Kufi Arabic":"YACkoGW2dTA,0","Noto Naskh Arabic":"YACkoI8Oj1c,0","Noto Nastaliq Urdu":"YAGU_Q5u0w4,0","Noto Sans":"YACkoCjjZNk,0","Noto Sans Armenian":"YACkoI5u7HA,0","Noto Sans Balinese":"YAHO21bV1BM,0","Noto Sans Batak":"YAHO23YQ0_M,0","Noto Sans Bengali":"YAFdJjnhMdI,0","Noto Sans Canadian Aboriginal":"YAHK3L_wQZM,0","Noto Sans Display":"YAHO2eyZBeY,0","Noto Sans Egyptian Hieroglyphs":"YAHO2Tb1y28,0","Noto Sans Ethiopic":"YAHO20DfUMM,0","Noto Sans Georgian":"YACkoFKxqWs,0","Noto Sans Gujarati":"YACkoEDaawU,0","Noto Sans Gurmukhi":"YACkoNT6NTg,0","Noto Sans HK":"YAHO2fCytzw,0","Noto Sans Javanese":"YACkoNo3Bcw,0","Noto Sans JP":"YAFdJiHXlcI,0","Noto Sans Kannada":"YACkoIujelo,0","Noto Sans Khmer":"YACkoFdRIJM,0","Noto Sans KR":"YAGsojZj-RQ,0","Noto Sans Lao":"YAHO2f6jVpw,0","Noto Sans Lao Looped":"YAHO2TSQjpA,0","Noto Sans Malayalam":"YACkoMzSo98,0","Noto Sans Mono":"YAHO2TFVtN0,0","Noto Sans Myanmar":"YACkoPHEdMk,0","Noto Sans Oriya":"YAHO2TmiA1I,0","Noto Sans SC":"YAHO2hDCDFM,0","Noto Sans Sinhala":"YACkoJiU_Ak,0","Noto Sans Symbols":"YAHO2n0Zh0w,0","Noto Sans Tamil":"YAHO2r9jkew,0","Noto Sans TC":"YAHO2pzGHBE,0","Noto Sans Telugu":"YAHO2uFAQs4,0","Noto Sans Thaana":"YAHO2-c-brc,0","Noto Sans Thai Looped":"YAFdJqlG6-E,0","Noto Serif":"YACkoGNq-XY,0","Noto Serif Bengali":"YAGVuu_j8c8,0","Noto Serif Devanagari":"YAGWNWUpY9s,0","Noto Serif Display":"YAFdJllHsUM,0","Now":"YAFdJrJllfA,0","Numans":"YAHO2nkeXPA,0","Nunito":"YAFdJoNRMmU,1","Nunito Sans":"YAFdtQJYB9w,1","Odibee Sans":"YAD1aGo16Go,0","Old Standard TT":"YAHO2lhtDcg,0","Oleo Script":"YACgEQQ14jI,0","Onest":"YAHO2kaArOY,0","Open Sans":"YAFdJt8dAY0,1","Open Sans Condensed":"YAD7Rf0lmm4,1","Open Sans Hebrew":"YAFdJlARYMY,0","Optima":"YAFcf0Fltlg,0","Oranienbaum":"YALBs0MvhmA,0","Orbit":"YAFyMQm0Z54,0","Orbitron":"YAHO2tXXH_o,0","Oswald":"YACgEQY10lw,0","Outfit":"YAHO2nVlg14,0","Overpass":"YAFdJhmdIMM,1","Overpass Mono":"YAHO2kkv44I,0","Ovo":"YADK4JHqBpg,0","Oxanium":"YAHO2kINDn0,0","Oxygen":"YAHO2nOU31A,0","Pacifico":"YADLjORQ1u4,0","Padauk":"YACkoMjU4UU,0","Palanquin":"YAFdJkUV3N4,0","Palatino":"YAGLy64uiS8,4","Pangolin":"YADK4DH4-fM,0","Panton":"YAFdJg3DcRA,0","Parisienne":"YACgERSYqTw,0","Parkinsans":"YAHO2j-ZSEo,0","Passion One":"YAFdJo9cFec,0","Pathway Extreme":"YAHO2h3f3W0,0","Pathway Gothic One":"YACkoMQo7Mc,0","Patrick Hand":"YAHO2swKcgg,0","Patrick Hand SC":"YAHO2qmdhTY,0","Patua One":"YAHO2qRZWLE,0","Paytone One":"YALBs8J6By4,0","Perandory SemiCondensed":"YAFJsrsM0TY,0","Permanent Marker":"YACgEcB-r-s,0","Petit Formal Script":"YALBsw8cs24,0","Petrona":"YADK4PUbnVg,1","Philosopher":"YAEkTCvkg7Q,0","Phudu":"YAHO2vkIQEo,0","Ping":"YAEYXSRnkF0,0","Pinyon Script":"YACgEQzTJgs,0","Pirata One":"YALBs3j2Xx0,0","Pixelify Sans":"YAHO2v5ARTA,0","Play":"YADK4EFto8o,0","Playball":"YAHO2hWLQJ0,0","Playfair Display":"YAFdJhem5V8,1","Playfair Display SC":"YACgESE7eJQ,0","Playpen Sans":"YAGLNo9uX4s,1","Playwrite BR":"YAGNffc3m80,0","Playwrite ES":"YAHO202sEvg,0","Playwrite ID":"YAHO27jDFoE,0","Playwrite NZ Basic":"YAHO26KONyE,0","Playwrite VN":"YAHO2_bSM7Y,0","Plus Jakarta Sans":"YAHO2gdhi18,0","Poiret One":"YAHO2nweLas,0","Pontano Sans":"YAHO2t91rWw,0","Poppins":"YAFdJjbTu24,1","Potta One":"YAFShf6np94,0","Pragmatica":"YAEw1pyVaO0,0","Prata":"YACgES4qGnk,0","Press Start 2P":"YAFyGr-8pmQ,0","Pridi":"YAFdJmJ3gqA,0","Prompt":"YAFdJmA6sOY,0","Protest Riot":"YAGXhAFSAis,0","Proxima Nova":"YAFcfjveRFU,0","Proxima Nova Condensed":"YAFcfiSm_SA,0","Proza Libre":"YAHO2nv0NKc,0","PT Mono":"YAHO2lnK_7w,0","PT Sans":"YACgEYbsV-E,0","PT Sans Caption":"YAHO2oZpTQc,0","PT Sans Narrow":"YAHO2glZymI,0","PT Serif":"YACgEcU7Qg4,0","Public Sans":"YAFdJj8NdaU,1","Pyidaungsu":"YACkoGGC7sA,0","Quantico":"YAHO2me4bVc,0","Quattrocento":"YACgEcL5b3s,0","Quattrocento Sans":"YAHO2vuaC0Y,0","Questrial":"YADK4LSvvyE,1","Quicksand":"YAFdJpYtCxE,1","Racing Sans One":"YACgEbcqMPM,0","Radio Canada":"YAHO2qxyljs,0","Radio Canada Big":"YAHO2r7P8wg,0","Radley":"YADK4O60vp0,0","Rajdhani":"YAFdJoWaWgo,0","Rakkas":"YALBs9kmKNE,0","Raleway":"YAFdJhmxbVQ,1","Ramabhadra":"YACkoN_hhSs,0","Rammetto One":"YAHO2nAqWuQ,0","Rasa":"YAFdJg-9rGY,0","Readex Pro":"YAGVt3RBO3c,0","Recoleta":"YAFcf2ThYuU,2","Recursive":"YAHO2oZn01g,0","Red Hat Display":"YAD1bzs0p0Y,0","Red Hat Mono":"YAHO2gB0kV8,0","Red Hat Text":"YAHO21kkNWg,0","Reddit Sans":"YAHO2kKAR-8,0","Reem Kufi":"YADSJ0ceOYQ,0","Reenie Beanie":"YAHO2s4qTnk,0","Reggae One":"YAFyL1F3Y-4,0","Rethink Sans":"YAHO2q9_FzY,0","Righteous":"YAHO2oo4-So,0","Road Rage":"YAHO2o82hA4,0","Roboto":"YACgEev4gKc,0","Roboto Condensed":"YACgEan-tYE,0","Roboto Flex":"YAHO2nqK4E8,0","Roboto Mono":"YAFdJkvp3-k,0","Roboto Slab":"YAFdJswIKAg,0","Rochester":"YAHO2kOZ9jU,0","Rock Salt":"YAHO2vFSVxE,0","Rockwell":"YAFcfyVZnN0,0","Rockwell Condensed":"YAFcf0bsook,0","Rokkitt":"YAFdJnlBl3o,0","Ropa Sans":"YACkoCA_LhY,0","Rowdies":"YAFyL2wl4FI,0","Rozha One":"YACkoMIfZVA,0","Rubik":"YAFdJsMWVVc,0","Rubik Dirt":"YAFyHRD_ZDY,0","Rubik Glitch":"YAFyL0Ap4GM,0","Rubik Mono One":"YAHO2qtMuC0,0","Rubik Wet Paint":"YAHO2mLD_X0,0","Ruda":"YAFdJuuBNyM,1","Rufina":"YADK4FKO8Lg,0","Ruwudu":"YAGVt1otBOY,0","Rye":"YACgEdQP21k,0","Sacramento":"YACgEf5ivwU,0","Saira":"YAFdJk33d3s,0","Saira Condensed":"YAFdJuBuAxg,0","Saira Extra Condensed":"YAFdJiQUvWc,0","Saira Semi Condensed":"YAHO2gfd5g8,0","Saira Stencil One":"YAD1aV1l2HE,0","Sanchez":"YACgEbBJLy8,0","Sancreek":"YALBsyHedNY,0","Sansation":"YAFdJglRFbg,0","Sarabun":"YAFdJssSnME,0","Sarala":"YADK4LF5xeY,0","Satisfy":"YACgEf5XTk0,0","Sawarabi Mincho":"YAD1faq7yjk,0","Scheherazade New":"YAHO2sxcjiY,0","Schibsted Grotesk":"YAHO2sWydRk,0","Schoolbell":"YACgEZHPKsk,0","Segoe Script":"YAF3uTF1s5I,0","Segoe UI":"YAHNdRD1Klw,0","Sen":"YAHO2h5vrRE,0","Shadows Into Light":"YAHO2tztN1k,0","Shadows Into Light Two":"YACgEVD67CI,0","Shantell Sans":"YAFyGytbxDc,0","Share Tech":"YAHO2q4NPs0,0","Share Tech Mono":"YAHO2oHio98,0","Shippori Mincho":"YAGWZNRJkO8,0","Shippori Mincho B1":"YAGWZJnXF8c,0","Short Stack":"YAHO2lg7AII,0","Shrikhand":"YACkoEA0Kc0,0","Signika":"YACgEfiK7GI,0","Signika Negative":"YAHO2rWYEng,0","Silkscreen":"YAHO2rdlQ_o,0","Simonetta":"YADK4LfzWNc,0","Single Day":"YAGXDZBCspk,0","Sintony":"YAHO2kIBPTg,0","Sirivennela":"YAHO2ougDr8,0","Skranji":"YAHO2uPivlQ,0","Slabo 13px":"YAHO2hvaP1I,0","Slabo 27px":"YAHO2n--yeE,0","Slackey":"YAHO2iIaL7o,0","Smooch Sans":"YAHO2tPdb20,0","Snell Roundhand":"YAFcf-RMpoo,0","Sniglet":"YACgEUJSCy8,0","Sofia":"YAHO2kq3qHg,0","Sofia Sans":"YAHMLUINeco,0","Sofia Sans Condensed":"YAHMLQmSo-Y,0","Sofia Sans Extra Condensed":"YAHMLV0fp0c,0","Solway":"YAD1fewp_mA,3","Song Myung":"YADK4PZtE24,0","Sora":"YAHO2rDTR1E,0","Sorts Mill Goudy":"YADK4Fi0R2c,0","Source Code Pro":"YAHO2tzIJbg,0","Source Han Serif JP":"YAFdJgMJ6Bo,0","Source Sans 3":"YAG4lO1Mj10,0","Source Sans Pro":"YACgEQzTv38,0","Source Serif Pro":"YACgEfdj394,0","Space Grotesk":"YAHO2sjPCSM,0","Space Mono":"YADW1-vpsoc,0","Special Elite":"YACgEYVlm9Q,0","Special Gothic Expanded One":"YAHO2oaS0m0,0","Spectral":"YAHO2rVUHIM,0","Spectral SC":"YAHO2gamQtc,0","Spline Sans":"YAHO2rZC9CE,0","Squada One":"YADK4PDlAAM,0","Sriracha":"YALBs4sJbXs,0","Staatliches":"YAD1bzJCL-s,0","Stack Sans Headline":"YAHO2n0Qv4w,0","Stardos Stencil":"YADK4Mu_Xj0,1","STIX Two Text":"YAHO2joycuk,0","Style Script":"YAGLy2PgdK0,0","Sue Ellen Francisco":"YADK4OIbCxo,0","Suez One":"YACkoJMi7_c,0","Sunflower":"YAFdJtJhp3I,1","Suranna":"YADK4MB5J7A,0","SUSE":"YAHO2pLixnA,0","Syncopate":"YAHO2iXpgDY,0","Syne":"YAHML9oLRPc,0","Tahoma":"YAFcfipOFgg,0","Tajawal":"YAFdJg45t1g,0","TAN Meringue":"YAEwfQVqdIo,0","TAN Nimbus":"YAEwfdrEBqg,0","Tangerine":"YADK4L8oUVI,0","TASA Orbiter":"YAHO2umh_2o,0","Taviraj":"YAFdJjquxqU,0","Teko":"YAFdJsF6lbU,0","Tektur":"YAHMLdkk1tM,0","Telegraf":"YAFdJvl8raw,1","Tenor Sans":"YACgEVY5j_w,0","TH Sarabun New":"YACkoFu1RUU,0","The Seasons":"YAFdJnPX3ZE,0","The Youngest":"YAEtfuYOYZQ,1","thongterm":"YAHQupn3T8Q,0","TikTok Sans":"YAHO2of1C4s,0","Tilt Neon":"YAHO2vo8k8w,0","Tilt Warp":"YAHO2uqld84,0","Times":"YAGzXW3gftg,0","Times New Roman":"YAGzXW3gftg,0","Tinos":"YACkoJyNZF4,0","Tiro Bangla":"YAGVuiG7jnE,0","Tiro Devanagari Hindi":"YAGWNCjUq0o,0","Tiro Devanagari Marathi":"YAGWNO-IVTE,0","Tiro Devanagari Sanskrit":"YAGWNHzN1is,0","Tiro Telugu":"YAHO2nlia1k,0","Titan One":"YAHO2v8eA3A,0","Titillium Web":"YAFdtTOE9xo,0","Tomorrow":"YAFdJlW65k4,0","Traditional Arabic":"YAGLszSchGc,0","Trebuchet MS":"YAFcfrglpVA,0","Trirong":"YAFdJkEiIOI,0","Trocchi":"YACgEV-yq04,0","TT Backwards Script":"YAEnTERS7-o,0","TT Commons Pro":"YAEnTI0o408,0","TT Norms":"YAFdJoYMYSc,0","Turret Road":"YAHO2pKQLYQ,0","Ubuntu":"YACgERDU--Q,0","Ubuntu Condensed":"YAHO2nCaahY,0","Ubuntu Mono":"YAHO2g6B-Uo,0","Ubuntu Sans":"YAHO2kypvWc,0","Ultra":"YACgEWHSPx0,0","Unbounded":"YAHO2rkdmWY,0","Uncial Antiqua":"YAHO2gmfDAs,0","Unica One":"YALBs74Pdjc,0","UnifrakturCook":"YAHO2srzKxY,0","UnifrakturMaguntia":"YACgEZRHDPA,0","Unna":"YADK4PtOh7E,0","Urbanist":"YAHO2o1IFy0,0","Varela":"YAHO2gPi4IU,0","Varela Round":"YALBs2IK6rw,0","Vazir":"YAFdJkYF8Mg,0","Vazirmatn":"YAHO2z1lH5c,0","Verdana":"YAGzXTctYtQ,0","Verdana Pro":"YAFcf0Q1_fs,0","Vidaloka":"YACgEdRnAX0,0","Viga":"YAHO2v8Lzbg,0","Vivaldi":"YAFcf2k4GUc,0","Volkhov":"YAHO2uWq-qg,0","Vollkorn":"YAFdJli9wSA,0","VT323":"YACgEYI9BCI,0","Walter Turncoat":"YADK4Mm5Elo,0","WindSong":"YAGXhGUyKSQ,0","Wix Madefor Display":"YAHO2o-Qfis,0","Wix Madefor Text":"YAHO2rU16Qc,0","Work Sans":"YAGXhLOKv44,0","Xanh Mono":"YAHO2pYt2v0,0","Yaldevi":"YAHO2l1R4xo,0","Yanone Kaffeesatz":"YAFdtbpuM0E,0","Yantramanav":"YAFdJuZAcfY,0","Yatra One":"YACkoJ228Ho,0","Yellowtail":"YACgEYG4kG4,0","Yeon Sung":"YADK37OOtIA,0","Yeseva One":"YALBs4GWnJw,0","Yesteryear":"YALBs99Qer0,0","Ysabeau":"YAHMLjcdG48,0","Ysabeau Office":"YAHO2uUYDYI,0","Yuji Boku":"YAFGHcN5e_Y,0","Yuji Mai":"YAFGHYm9K5k,0","Yuji Syuku":"YAFFjuwaUks,0","Yusei Magic":"YAEhL8RNAMk,0","Zain":"YAHO2lC1Xkw,0","Zalando Sans":"YAHO2k5OK-M,0","Zalando Sans Expanded":"YAHO2h6OPds,0","ZCOOL KuaiLe":"YAD1b3Joj4Y,0","ZCOOL XiaoWei":"YAD1b1xytFY,0","Zen Antique Soft":"YAHO2k9Rm_4,0","Zen Kaku Gothic Antique":"YAHO2u8F_xk,0","Zen Kaku Gothic New":"YAHO2tS_yps,0","Zen Kurenaido":"YAFKDpCxcZ8,0","Zen Maru Gothic":"YAFdJgMrcdw,0","Zen Old Mincho":"YAHO2tMwaEs,0","Zeyada":"YAHO2lP62P0,0","Zilla Slab":"YAFdJpPotmI,0","궁서체":"YAGNIIhCWnU,2"},"D":"index.html"}');</script><script src="/_sdk/fb778981f16dec71.telemetry_sdk.js" integrity="sha512-YPj+EcADuXcF0oYlFMDm6o5N2/DmqwnXQdv0MYfx5OEDq2lJpxmNfg8DYyAJdd0fAa4Ftc+9X6h94QroJ5kJIA=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f0e4">
+  <meta name="description" content="Luz &amp; Meme: dirección de arte, redacción e ideas con carácter. Portfolio creativo de una dupla de publicidad.">
+  <meta property="og:title" content="Luz &amp; Meme — Ideas con carozo">
+  <meta property="og:description" content="Una dupla creativa. Muchas ideas. Algunas aceitunas.">
+  <title>Luz &amp; Meme — Portfolio creativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght,SOFT,WONK@9..144,400,20,1;9..144,500,20,1;9..144,600,20,1;9..144,700,20,1&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root{--cream:#f5f0e4;--paper:#eee7d8;--olive:#4c572a;--olive-light:#77834c;--wine:#511e30;--ink:#29291f;--red:#c24a37;--line:#b8b59f}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}button,input{font-family:"DM Sans",sans-serif}button,a{ -webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid var(--red);outline-offset:5px}svg{display:block}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:"Fraunces",serif;font-weight:500;letter-spacing:-.055em}p{line-height:1.55}.site-header{position:fixed;inset:0 0 auto;z-index:30;background:rgba(245,240,228,.94);border-bottom:1px solid rgba(76,87,42,.22);backdrop-filter:blur(14px)}.header-inner{max-width:1540px;margin:auto;padding:15px clamp(22px,5vw,80px);display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-family:"Fraunces",serif;font-size:25px;font-weight:700;letter-spacing:-.07em;color:var(--olive);white-space:nowrap}.brand span{color:var(--red)}.desktop-nav{display:flex;align-items:center;gap:clamp(20px,3vw,48px)}.desktop-nav a,.mobile-nav a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;transition:color .2s}.desktop-nav a:hover,.mobile-nav a:hover{color:var(--red)}.menu-toggle{display:none;border:0;background:transparent;color:var(--olive);padding:8px}.mobile-nav{display:none}.page-shell{overflow:hidden}.wrap{width:min(100% - 2*clamp(22px,5vw,80px),1380px);margin-inline:auto}.eyebrow{display:flex;align-items:center;gap:13px;text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:700}.eyebrow:before{content:"";width:25px;height:1px;background:currentColor}.hero{min-height:min(860px,100svh);padding:130px 0 72px;position:relative;display:flex;align-items:center}.hero-inner{display:grid;grid-template-columns:1.06fr .94fr;align-items:center;gap:2vw;width:100%}.hero-copy{position:relative;z-index:2}.hero .eyebrow{color:var(--wine);margin-bottom:30px}.hero h1{font-size:clamp(88px,13.4vw,205px);line-height:.76;color:var(--olive);margin:0 0 40px;white-space:nowrap}.hero h1 .amp{color:var(--wine);font-style:italic;font-size:.68em;vertical-align:13%}.hero-tag{font-family:"Fraunces",serif;font-size:clamp(26px,3vw,43px);line-height:1.15;letter-spacing:-.04em;max-width:510px;margin-bottom:38px}.hero-tag em{color:var(--wine)}.round-link{display:inline-flex;gap:25px;align-items:center;border:1px solid var(--olive);border-radius:100px;padding:15px 17px 15px 24px;text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:700;color:var(--olive);transition:background .25s,color .25s}.round-link:hover{background:var(--olive);color:var(--cream)}.round-link .circle{width:34px;height:34px;border-radius:50%;background:var(--olive);color:var(--cream);display:grid;place-items:center}.round-link:hover .circle{background:var(--cream);color:var(--olive)}.round-link svg{width:16px}.hero-art{height:min(650px,60vw);position:relative;display:grid;place-items:center}.hero-art:before{content:"";position:absolute;width:79%;aspect-ratio:1;border:1px solid #c8c1ad;border-radius:50%;transform:rotate(-14deg)}.hero-art:after{content:"";position:absolute;width:67%;aspect-ratio:1;border:1px dashed #c8c1ad;border-radius:50%;transform:rotate(18deg)}.hero-art svg{width:100%;height:100%;position:relative;z-index:1;filter:drop-shadow(8px 15px 0 rgba(76,87,42,.07))}.hero-note{position:absolute;right:2%;bottom:6%;z-index:2;transform:rotate(-10deg);font-family:"Fraunces",serif;font-style:italic;color:var(--wine);font-size:18px}.ticker{background:var(--olive);color:var(--cream);overflow:hidden;white-space:nowrap;padding:15px 0;transform:rotate(-1.5deg) scale(1.02);font-family:"Fraunces",serif;font-style:italic;font-size:19px}.ticker span{display:inline-block;padding-left:30px}.ticker b{font-style:normal;color:#e7aa9d;padding:0 35px;font-size:13px}.section{padding:120px 0}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:48px}.section-heading h2{font-size:clamp(70px,10vw,145px);line-height:.85;color:var(--olive);margin:12px 0 0}.section-heading p{max-width:260px;font-size:14px;color:#676958;margin-bottom:4px}.projects-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 24px}.project-card{min-width:0}.project-button{display:block;width:100%;padding:0;border:0;background:none;text-align:left;color:inherit}.project-cover{height:clamp(300px,34vw,500px);position:relative;overflow:hidden;isolation:isolate;display:grid;place-items:center;transition:border-radius .35s}.project-button:hover .project-cover,.project-button:focus-visible .project-cover{border-radius:90px 8px 90px 8px}.cover-content{width:100%;height:100%;display:grid;place-items:center;position:relative;overflow:hidden}.cover-loading{background:#ced8e5;color:#253c71}.loading-browser{width:70%;background:#f4f3ef;border:2px solid #253c71;box-shadow:16px 16px 0 #253c71;transform:rotate(-5deg)}.browser-top{height:30px;border-bottom:2px solid #253c71;display:flex;align-items:center;gap:6px;padding:0 12px}.browser-top i{height:6px;width:6px;background:#253c71;border-radius:50%}.browser-body{padding:26px 28px 35px}.browser-body strong{font-size:clamp(32px,5vw,76px);letter-spacing:-.09em;line-height:.9;display:block;font-weight:700}.browser-bar{margin-top:25px;height:10px;width:80%;border:2px solid #253c71}.browser-bar:before{content:"";display:block;height:100%;width:65%;background:#ef7355}.cover-alma{background:#e9bac1;color:#601729}.alma-label{width:62%;aspect-ratio:.85;border-radius:45% 45% 8px 8px;background:#651b31;display:flex;align-items:center;justify-content:center;flex-direction:column;transform:rotate(6deg);color:#f8dfc5;box-shadow:17px 18px 0 #b64a5b;text-align:center;padding:20px}.alma-label small{font-size:12px;letter-spacing:.3em;text-transform:uppercase}.alma-label strong{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(44px,6vw,94px);line-height:.9;margin:22px 0}.alma-label em{font-family:"Fraunces",serif;font-size:19px}.cover-coppola{background:#c99563;color:#432820}.coppola-disc{width:72%;aspect-ratio:1;border:3px solid #432820;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 17px #d9ae80,0 0 0 20px #432820;transform:rotate(-12deg)}.coppola-disc strong{font-family:"Fraunces",serif;text-transform:uppercase;font-size:clamp(40px,6vw,95px);line-height:.8;text-align:center;letter-spacing:-.07em}.coppola-disc small{position:absolute;bottom:17%;letter-spacing:.25em;text-transform:uppercase;font-weight:700}.cover-shorta{background:#ade2e6;color:#15163b}.phone{height:83%;aspect-ratio:.51;background:#15163b;border:8px solid #15163b;border-radius:33px;transform:rotate(11deg);box-shadow:20px 15px 0 rgba(21,22,59,.2);overflow:hidden;position:relative}.phone-screen{height:100%;background:#e86951;padding:18% 8% 8%;display:flex;align-items:center;justify-content:center}.phone-screen strong{font-family:"DM Sans",sans-serif;font-size:clamp(39px,5vw,77px);font-weight:700;line-height:.85;letter-spacing:-.1em;color:#15163b;transform:rotate(-8deg)}.phone-screen:after{content:"▶";position:absolute;bottom:13%;left:43%;font-size:28px;color:white}.cover-rivadavia{background:#e4d7b5;color:#314a82}.notebook{width:61%;height:75%;background:#f9f5e8;border:3px solid #314a82;box-shadow:17px 17px 0 #314a82;transform:rotate(-8deg);padding:13% 7% 5%;position:relative}.notebook:before{content:"";position:absolute;left:11%;top:0;bottom:0;border-left:2px solid #dd7975}.notebook strong{font-family:"Fraunces",serif;font-size:clamp(30px,4vw,63px);line-height:.95;display:block}.notebook span{display:block;margin-top:22%;height:1px;background:#8cadd4;box-shadow:0 17px #8cadd4,0 34px #8cadd4,0 51px #8cadd4}.cover-overlay{position:absolute;inset:0;z-index:3;background:rgba(76,87,42,.84);opacity:0;transition:opacity .35s;pointer-events:none;display:grid;place-items:center}.project-button:hover .cover-overlay,.project-button:focus-visible .cover-overlay,.project-card.touched .cover-overlay{opacity:1}.overlay-olive{width:105px;height:145px;background:#9da76a;border:4px solid #e6e3c7;border-radius:50%;transform:translate(-160px,180px) rotate(-40deg);transition:transform .5s cubic-bezier(.2,.8,.2,1);box-shadow:inset -13px -12px 0 rgba(0,0,0,.13)}.overlay-olive:after{content:"";width:29px;height:35px;position:absolute;background:var(--red);border-radius:50%;left:34px;top:51px}.project-button:hover .overlay-olive,.project-button:focus-visible .overlay-olive,.project-card.touched .overlay-olive{transform:translate(0,0) rotate(20deg)}.overlay-caption{position:absolute;bottom:27px;right:28px;color:white;text-transform:uppercase;font-size:11px;letter-spacing:.2em;font-weight:700}.project-meta{display:flex;justify-content:space-between;align-items:start;gap:15px;padding-top:16px}.project-meta h3{font-size:clamp(26px,3vw,40px);line-height:1.05;margin:0;transition:color .2s}.project-button:hover h3{color:var(--wine)}.project-meta span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#777565;padding-top:8px;white-space:nowrap}.project-card:last-child{grid-column:1 / 2}.branch-divider{display:flex;justify-content:center;padding:12px 0;color:var(--olive)}.branch-divider svg{width:210px;height:70px}.about{background:var(--paper)}.about .section-heading{margin-bottom:55px}.people{display:grid;grid-template-columns:1fr 1fr;gap:24px}.person{border-top:1px solid var(--olive);padding:26px 0 0;display:grid;grid-template-columns:175px 1fr;gap:28px}.portrait{height:215px;background:#d8d7bd;position:relative;overflow:hidden;display:grid;place-items:end center}.portrait svg{width:100%;height:100%}.person:nth-child(2) .portrait{background:#e9c9c3}.person h3{font-size:clamp(42px,5vw,70px);line-height:.9;margin:5px 0 7px;color:var(--olive)}.person:nth-child(2) h3{color:var(--wine)}.role{text-transform:uppercase;letter-spacing:.15em;font-size:11px;font-weight:700;color:var(--wine);margin-bottom:17px}.bio{font-size:14px;max-width:350px;min-height:92px}.person-links{display:flex;gap:9px;flex-wrap:wrap}.person-links a{border:1px solid currentColor;border-radius:100px;padding:9px 14px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:background .2s,color .2s}.person-links a:hover{background:var(--wine);color:var(--cream)}.lado-b{background:var(--wine);color:var(--cream);position:relative}.lado-b .section-heading h2{color:var(--cream)}.lado-b .section-heading p{color:#e3c8c5}.b-grid{display:grid;grid-template-columns:1.1fr .8fr 1fr;align-items:start;gap:24px}.b-card{min-width:0}.b-card:nth-child(2){margin-top:90px;transform:rotate(4deg)}.b-card:nth-child(3){margin-top:30px;transform:rotate(-3deg)}.b-art{aspect-ratio:1.1;display:grid;place-items:center;position:relative;overflow:hidden}.b-card:nth-child(1) .b-art{background:#e8c3c0;color:#611f36}.b-card:nth-child(2) .b-art{background:#b9c29a;color:#46542a}.b-card:nth-child(3) .b-art{background:#acd4d9;color:#263a52}.b-art strong{font-family:"Fraunces",serif;font-size:clamp(44px,5.4vw,82px);line-height:.85;letter-spacing:-.07em;text-align:center;transform:rotate(-8deg);padding:20px;z-index:1}.b-art:before,.b-art:after{content:"";position:absolute;width:45%;aspect-ratio:1;border:2px solid currentColor;border-radius:50%;opacity:.45;top:-12%;right:-8%}.b-art:after{top:auto;right:auto;bottom:-19%;left:-10%;width:65%}.b-card h3{font-size:29px;margin:18px 0 5px;letter-spacing:-.04em}.b-card p{font-size:13px;color:#e1c9c5}.b-foot{font-family:"Fraunces",serif;font-style:italic;font-size:clamp(22px,3vw,37px);margin-top:70px;text-align:right;color:#d5b6ad}.contact{text-align:center;padding:125px 0 90px}.contact .eyebrow{justify-content:center;color:var(--wine)}.contact h2{font-size:clamp(68px,11vw,160px);line-height:.9;color:var(--olive);max-width:1050px;margin:24px auto 5px}.drink{width:min(310px,55vw);height:auto;margin:0 auto 12px}.contact-links{display:flex;align-items:center;justify-content:center;gap:20px 50px;flex-wrap:wrap}.contact-links a{font-family:"Fraunces",serif;font-size:clamp(20px,2.5vw,32px);border-bottom:1px solid var(--olive);padding-bottom:5px;transition:color .2s,border-color .2s}.contact-links a:hover{color:var(--red);border-color:var(--red)}.footer{border-top:1px solid var(--line);padding:22px 0 30px}.footer-inner{display:flex;justify-content:space-between;gap:20px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#666854}.detail-view{display:none;padding:125px 0 90px;min-height:100vh}.detail-view.active{display:block}.page-shell.hidden{display:none}.back-btn{border:0;background:none;color:var(--olive);display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;padding:0;margin-bottom:50px}.back-btn:hover{color:var(--wine)}.back-btn svg{width:17px}.detail-head{display:grid;grid-template-columns:1.4fr .6fr;gap:30px;align-items:end;margin-bottom:40px}.detail-head h1{font-size:clamp(65px,10vw,150px);line-height:.86;color:var(--olive);margin:12px 0 0}.detail-head p{font-size:17px;max-width:450px;margin:0 0 5px}.detail-cover{height:min(63vw,650px);min-height:350px;overflow:hidden}.detail-cover .cover-content{height:100%}.detail-content{display:grid;grid-template-columns:.6fr 1.4fr;gap:45px;padding:65px 0}.detail-content h2{font-size:clamp(34px,4vw,58px);color:var(--wine);margin:0}.detail-content p{font-size:18px;max-width:750px}.media-heading{font-size:clamp(38px,5vw,70px);color:var(--olive);margin:30px 0}.media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.media-placeholder{min-height:290px;padding:30px;border:1px solid var(--line);background:var(--paper);display:flex;flex-direction:column;justify-content:space-between}.media-placeholder:nth-child(even){background:#e4decf}.media-placeholder .number{font-family:"Fraunces",serif;font-size:80px;color:var(--olive);line-height:1}.media-placeholder strong{font-family:"Fraunces",serif;font-size:30px;color:var(--wine);font-weight:500}.media-placeholder small{font-size:12px;color:#6c6d5c}.video-slot{margin-top:20px;min-height:360px;background:var(--wine);color:var(--cream);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:15px;text-align:center;padding:30px}.video-slot svg{width:45px;height:45px}.video-slot strong{font-family:"Fraunces",serif;font-size:37px;font-weight:500}.video-slot p{font-size:13px;max-width:420px;margin:0;color:#dfc8c8}.detail-next{margin-top:70px;border-top:1px solid var(--line);padding-top:25px;display:flex;justify-content:space-between;align-items:center;gap:20px}.detail-next span{font-size:11px;text-transform:uppercase;letter-spacing:.15em}.detail-next button{border:0;background:none;font-family:"Fraunces",serif;font-size:clamp(30px,5vw,65px);color:var(--olive);text-align:right}.detail-next button:hover{color:var(--wine)}.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}@media(max-width:900px){.hero{min-height:720px}.hero h1{font-size:clamp(77px,12vw,120px)}.person{grid-template-columns:1fr}.portrait{height:260px;max-width:300px}.b-grid{gap:14px}.b-card:nth-child(2){margin-top:55px}}@media(max-width:650px){.header-inner{padding:13px 22px}.desktop-nav{display:none}.menu-toggle{display:block}.mobile-nav.open{display:flex;flex-direction:column;gap:23px;padding:15px 22px 28px;border-top:1px solid var(--line)}.mobile-nav a{font-size:14px}.hero{padding-top:110px;padding-bottom:55px;min-height:auto}.hero-inner{display:flex;flex-direction:column;align-items:stretch}.hero-copy{order:1}.hero h1{font-size:clamp(70px,16vw,105px);margin-bottom:25px}.hero .eyebrow{margin-bottom:24px}.hero-tag{font-size:27px;margin-bottom:26px}.hero-art{order:0;height:320px;margin-bottom:-35px;align-self:center;width:min(100%,390px)}.hero-note{right:-2%;bottom:18%}.section{padding:82px 0}.section-heading{display:block;margin-bottom:32px}.section-heading h2{font-size:72px}.section-heading p{margin-top:20px}.projects-grid{grid-template-columns:1fr;gap:32px}.project-card:last-child{grid-column:auto}.project-cover{height:clamp(290px,83vw,450px)}.project-meta h3{font-size:30px}.people{grid-template-columns:1fr;gap:45px}.person{grid-template-columns:120px 1fr;gap:18px}.portrait{height:165px}.person h3{font-size:44px}.bio{min-height:0;font-size:13px}.b-grid{grid-template-columns:1fr 1fr}.b-card:nth-child(2){margin-top:55px}.b-card:nth-child(3){grid-column:1 / -1;width:72%;margin:15px auto 0;transform:rotate(-3deg)}.b-art strong{font-size:clamp(40px,9vw,70px)}.contact{padding:90px 0 75px}.contact h2{font-size:clamp(62px,13vw,95px)}.contact-links{flex-direction:column;gap:20px}.detail-view{padding-top:105px}.detail-head{display:block}.detail-head h1{font-size:65px;margin-bottom:25px}.detail-cover{height:85vw;min-height:300px}.detail-content{grid-template-columns:1fr;gap:10px;padding:45px 0}.media-grid{grid-template-columns:1fr}.media-placeholder{min-height:220px}.video-slot{min-height:290px}}@media(max-width:390px){.person{grid-template-columns:1fr}.portrait{width:170px;height:190px}.hero h1{font-size:68px}.project-meta span{font-size:9px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+  <script src="/_sdk/bddf767fb065c21b.data_sdk.js" type="text/javascript" integrity="sha512-2vpLbebzZqyNGDHj4S/hNQer3IOu5izs2myxynH8/NvYQHh8EnUZgHGROXCT/+fDAmTcNSX4klehRoicmAFsqg=="></script>
+  <script src="/_sdk/476410e34eaa0915.editing_sdk.js" type="text/javascript" integrity="sha512-mOFJq2Lc9JUe76DPzDphmOAL/7wppZ1b/KMo7C3dt4jdisXcQsUw7UG6IoL/WebQQvrgYKa9JAaLKQQtJ5R8SQ=="></script>
+  <script src="/_sdk/d71f39f99b327c9e.resizing_sdk.js" type="text/javascript" integrity="sha512-QUhSaDv5LVWBqCeVvNygPNOyWwX1vNVotv+iARsyZ+DyyR/968VN971iTOX9sVg6Ny+LvUzmd9SibhFV+xeITQ=="></script>
+ </head>
+ <body>
+  <header class="site-header canva-header" id="site-header">
+   <div class="header-inner">
+    <a class="brand canva-link" href="#inicio" aria-label="Luz y Meme, volver al inicio">luz <span>&amp;</span> meme.</a>
+    <nav class="desktop-nav canva-menu" aria-label="Navegación principal">
+     <a class="canva-link" href="#proyectos">Proyectos</a><a class="canva-link" href="#nosotras">Nosotras</a><a class="canva-link" href="#lado-b">Lado B</a><a class="canva-link" href="#contacto">Contacto</a>
+    </nav>
+    <button class="menu-toggle canva-button" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav"><i data-lucide="menu"></i></button>
+   </div>
+   <nav class="mobile-nav canva-menu" id="mobile-nav" aria-label="Navegación móvil">
+    <a class="canva-link" href="#proyectos">Proyectos</a><a class="canva-link" href="#nosotras">Nosotras</a><a class="canva-link" href="#lado-b">Lado B</a><a class="canva-link" href="#contacto">Contacto</a>
+   </nav>
+  </header>
+  <main class="page-shell" id="home-view">
+   <section class="hero canva-section" id="inicio">
+    <div class="wrap hero-inner">
+     <div class="hero-copy">
+      <div class="eyebrow canva-text">Dupla creativa · Dirección de arte + Redacción</div>
+      <h1>luz <span class="amp">&amp;</span>
+       <br>
+       meme.</h1>
+      <p class="hero-tag canva-text" id="hero-tagline">Ideas con carozo.
+       <br>
+       <em>Y un poquito de sal.</em></p>
+      <a class="round-link canva-button" href="#proyectos">Ver lo que hacemos <span class="circle"><i data-lucide="arrow-down"></i></span></a>
+     </div>
+     <div class="hero-art" aria-label="Ilustración de una rama de olivo con aceitunas verdes y oscuras" role="img">
+      <svg viewBox="0 0 650 670" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+       <path d="M115 580C172 488 232 458 293 377C359 286 406 195 521 89" stroke="#4C572A" stroke-width="8" stroke-linecap="round" /> <path d="M198 474C131 451 95 418 67 361M251 421C264 360 247 309 213 268M326 335C373 339 424 320 468 276M392 254C374 205 385 159 414 118M461 154C507 168 546 161 579 137" stroke="#4C572A" stroke-width="5" stroke-linecap="round" />
+       <g fill="#7A8A4B" stroke="#43512B" stroke-width="3">
+        <path d="M190 478C149 451 110 465 91 489C127 506 164 501 190 478Z" /><path d="M205 463C207 416 177 393 143 393C146 429 166 451 205 463Z" /> <path d="M267 400C294 358 286 322 262 304C245 338 244 372 267 400Z" /><path d="M296 372C331 383 362 373 380 348C346 335 319 344 296 372Z" /> <path d="M348 307C331 260 343 226 372 210C386 242 378 274 348 307Z" /><path d="M385 262C425 275 458 265 478 241C444 224 411 229 385 262Z" /> <path d="M430 192C418 151 434 116 466 103C473 139 460 166 430 192Z" /><path d="M486 151C527 172 562 165 586 141C556 117 515 122 486 151Z" /> <path d="M153 432C111 416 86 389 78 358C115 365 143 388 153 432Z" /><path d="M112 385C81 383 51 366 39 341C68 331 100 347 112 385Z" />
+       </g>
+       <g stroke="#394528" stroke-width="4">
+        <ellipse cx="124" cy="553" rx="43" ry="55" transform="rotate(21 124 553)" fill="#849651" /><ellipse cx="241" cy="466" rx="39" ry="52" transform="rotate(-22 241 466)" fill="#586737" /><ellipse cx="305" cy="334" rx="37" ry="51" transform="rotate(20 305 334)" fill="#626d3c" /><ellipse cx="466" cy="308" rx="39" ry="52" transform="rotate(-20 466 308)" fill="#512336" /><ellipse cx="412" cy="128" rx="31" ry="43" transform="rotate(24 412 128)" fill="#472333" />
+       </g>
+       <g fill="#F4E9C9" opacity=".48">
+        <ellipse cx="108" cy="531" rx="8" ry="19" transform="rotate(20 108 531)" /><ellipse cx="229" cy="445" rx="7" ry="17" transform="rotate(-20 229 445)" /><ellipse cx="293" cy="315" rx="7" ry="16" transform="rotate(20 293 315)" /><ellipse cx="452" cy="288" rx="7" ry="17" transform="rotate(-20 452 288)" />
+       </g>
+       <ellipse cx="124" cy="554" rx="12" ry="15" fill="#BD493B" /> <path d="M83 618C197 642 453 635 571 563" stroke="#A4A18A" stroke-width="2" stroke-dasharray="3 9" />
+      </svg>
+      <span class="hero-note canva-text">dos cabezas,
+       <br>un frasco.</span>
+     </div>
     </div>
-  </div>
-  <div class="frasco" aria-hidden="true">
-    <svg class="sello" viewBox="0 0 100 100">
-      <path id="circulo" d="M50,50 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" fill="none"/>
-      <text><textPath href="#circulo" textLength="272" lengthAdjust="spacing">DOS ACEITUNAS ✦ UN MISMO FRASCO ✦ COPY & ARTE ✦</textPath></text>
-    </svg>
-    <svg class="o o1"><use href="#oliva-verde"/></svg>
-    <svg class="o o2"><use href="#oliva-negra"/></svg>
-  </div>
-</header>
-
-<div class="cinta" aria-hidden="true">
-  <div class="cinta-track">
-    <span>Copy <i>✦</i> Arte <i>✦</i> Ideas con carozo <i>✦</i> Verdes y negras <i>✦</i> Copy <i>✦</i> Arte <i>✦</i> Ideas con carozo <i>✦</i> Verdes y negras <i>✦</i></span>
-    <span>Copy <i>✦</i> Arte <i>✦</i> Ideas con carozo <i>✦</i> Verdes y negras <i>✦</i> Copy <i>✦</i> Arte <i>✦</i> Ideas con carozo <i>✦</i> Verdes y negras <i>✦</i></span>
-  </div>
-</div>
-
-<section id="nosotras">
-  <div class="sec-head">
-    <div>
-      <p class="eyebrow">Nosotras</p>
-      <h2>Una verde, <em>una negra.</em></h2>
-    </div>
-    <p>Distintas, pero del mismo frasco. Pensamos el copy y el arte al mismo tiempo: cada idea nace de una charla, no de un brief partido en dos.</p>
-  </div>
-  <div class="nosotras" id="nosotrasGrid"></div>
-</section>
-
-<section id="ideas">
-  <div class="sec-head">
-    <div>
-      <p class="eyebrow">Portfolio</p>
-      <h2>Ideas <em>seleccionadas</em></h2>
-    </div>
-    <p>Campañas, activaciones y productos. Tocá una idea para ver el caso completo.</p>
-  </div>
-  <div class="filtros" id="filtros"></div>
-  <div class="grid" id="grid"></div>
-</section>
-
-<section id="contacto">
-  <div class="contacto">
-    <div>
-      <p class="eyebrow">Contacto</p>
-      <h2>¿Un vermú y <em>lo charlamos?</em></h2>
-      <p class="sub">Contanos la marca, el desafío y los plazos. Las aceitunas las ponemos nosotras.</p>
-      <a class="mail-grande" id="mail" href="#"></a>
-      <div class="redes" id="redes"></div>
-    </div>
-    <form id="form">
-      <input name="nombre" type="text" placeholder="Tu nombre" required>
-      <input name="email" type="email" placeholder="Tu email" required>
-      <input name="marca" type="text" placeholder="Empresa / marca">
-      <textarea name="mensaje" placeholder="Contanos sobre el proyecto"></textarea>
-      <button class="btn" type="submit">Enviar mensaje</button>
-      <p class="estado" id="estado" role="status"></p>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <span>© <span id="anio"></span> <span data-nombres=" & "></span> · Dupla creativa</span>
-  <span>Hecho con aceitunas 🫒</span>
-</footer>
-
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitulo">
-  <div class="modal-box">
-    <button class="cerrar" id="cerrar" aria-label="Cerrar">×</button>
-    <div id="modalContenido"></div>
-  </div>
-</div>
-
-<script>
-// =====================================================================
-//  ✏️  EDITÁ ACÁ — todo el contenido del sitio está en este bloque
-// =====================================================================
-
-const DUPLA = {
-  email: "luzymeme@ejemplo.com",
-  instagram: "",   // ej: "https://instagram.com/luzymeme"
-  behance: "",     // ej: "https://behance.net/..."
-  formspree: "",   // ej: "https://formspree.io/f/abcdwxyz" — si queda vacío, el formulario abre el mail
-  // true = muestra recuadros punteados "Completar" donde falta info (útil mientras arman).
-  // Pónganlo en false cuando publiquen: lo vacío simplemente no se muestra.
-  mostrarPendientes: true
-};
-
-const NOSOTRAS = [
-  {
-    nombre: "Luz Apellido",
-    rol: "Copywriter",            // cámbienlo si es al revés
-    oliva: "verde",               // "verde" o "negra" (color de la tarjeta)
-    foto: "",                     // ej: "assets/img/luz.jpg"
-    bio: "",                      // 2 o 3 líneas: de dónde venís, qué te gusta, dónde estudiaste/trabajaste
-    linkedin: "",                 // ej: "https://www.linkedin.com/in/..."
-    cv: ""                        // ej: "assets/cv/luz.pdf"
-  },
-  {
-    nombre: "Meme Apellido",
-    rol: "Directora de Arte",
-    oliva: "negra",
-    foto: "",
-    bio: "",
-    linkedin: "",
-    cv: ""
-  }
-];
-
-/*  CÓMO ARMAR UN PROYECTO
-    tema:     color de la portada si no hay imagen → "oliva" | "bordo" | "negra" | "crema" | "clara"
-    portada:  imagen de portada, ej "assets/img/alma-mora/portada.jpg" (vacío = portada generada)
-    media:    lista de piezas. tipo: "imagen" | "video" (mp4 propio) | "youtube" | "vimeo" | "drive"
-              src: ruta o link. texto: epígrafe.
-              formato: "vertical" para piezas 9:16. ancho: "medio" para poner dos imágenes lado a lado.
-    titulares: lista de titulares (se muestran como citas grandes).
-    extras:   secciones libres { titulo, texto }.
-    links:    botones { texto, url } (PDF del board, nota de prensa, etc.)
-    Cualquier campo vacío ("") no se muestra (o se marca como pendiente). */
-
-const PROYECTOS = [
-  {
-    id: "loading-logo",
-    titulo: "Loading logo...",
-    marca: "Junior Achievement",
-    categoria: "Digital",
-    anio: "",
-    premio: "Presentada a Premios Obrar",
-    tema: "oliva",
-    portada: "",
-    bajada: "Un welcome kit para quienes buscan su primer empleo.",
-    descripcion: "Un «welcome kit» que les enviamos a jóvenes en busca de su primer empleo para que lo suban a su LinkedIn y empiecen a generar redes.",
-    concepto: "",
-    reto: "",
-    idea: "",
-    resultado: "",
-    titulares: [],
-    media: [
-      { tipo: "imagen",  src: "", texto: "Board" },
-      { tipo: "youtube", src: "", texto: "Videocaso" }
-    ],
-    extras: [],
-    links: [ { texto: "Board en PDF", url: "" } ]
-  },
-  {
-    id: "alma-mora",
-    titulo: "Alma Mora",
-    marca: "Alma Mora",
-    categoria: "Gráfica",
-    anio: "",
-    premio: "",
-    tema: "bordo",
-    portada: "",
-    bajada: "Un concepto, muchos titulares largos.",
-    descripcion: "Serie de gráficas con distintos titulares bajo un mismo concepto de campaña, respetando el concepto de marca.",
-    concepto: "",
-    reto: "",
-    idea: "",
-    resultado: "",
-    titulares: ["", "", ""],
-    media: [
-      { tipo: "imagen", src: "", texto: "Gráfica 1", ancho: "medio" },
-      { tipo: "imagen", src: "", texto: "Gráfica 2", ancho: "medio" },
-      { tipo: "imagen", src: "", texto: "Gráfica 3", ancho: "medio" }
-    ],
-    extras: [],
-    links: []
-  },
-  {
-    id: "coppola",
-    titulo: "Coppola",
-    marca: "Coppola (serie)",
-    categoria: "Activación",
-    anio: "",
-    premio: "",
-    tema: "negra",
-    portada: "",
-    bajada: "Activaciones para el lanzamiento de la nueva temporada.",
-    descripcion: "Activaciones para el lanzamiento de la nueva temporada de la serie Coppola.",
-    concepto: "",
-    reto: "",
-    idea: "",
-    resultado: "",
-    titulares: [],
-    media: [
-      { tipo: "imagen",  src: "", texto: "Board / key visual" },
-      { tipo: "youtube", src: "", texto: "Videocaso o render de la activación" }
-    ],
-    extras: [],
-    links: []
-  },
-  {
-    id: "shorta",
-    titulo: "Shorta",
-    marca: "Shorta",
-    categoria: "Vía pública",
-    anio: "",
-    premio: "",
-    tema: "crema",
-    portada: "",
-    bajada: "Vía pública para una app de series verticales.",
-    descripcion: "Piezas de vía pública —gráficas y videos— para Shorta, la app de series verticales. Además, una idea de film.",
-    concepto: "",
-    reto: "",
-    idea: "",
-    resultado: "",
-    titulares: [],
-    media: [
-      { tipo: "imagen", src: "", texto: "Gráfica vía pública", ancho: "medio" },
-      { tipo: "video",  src: "", texto: "Video vertical", formato: "vertical" }
-    ],
-    extras: [ { titulo: "Idea de film", texto: "" } ],
-    links: []
-  },
-  {
-    id: "hojas-rivadavia",
-    titulo: "Hojas Rivadavia",
-    marca: "Hojas Rivadavia",
-    categoria: "Producto",
-    anio: "",
-    premio: "",
-    tema: "clara",
-    portada: "",
-    bajada: "Una idea de producto para la marca.",
-    descripcion: "",
-    concepto: "",
-    reto: "",
-    idea: "",
-    resultado: "",
-    titulares: [],
-    media: [ { tipo: "imagen", src: "", texto: "Producto / mockup" } ],
-    extras: [],
-    links: []
-  }
-];
-
-// =====================================================================
-//  De acá para abajo no hace falta tocar nada
-// =====================================================================
-
-const $ = s => document.querySelector(s);
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const pend = (t = "Completar") => DUPLA.mostrarPendientes ? `<span class="pendiente">${esc(t)}</span>` : "";
-
-/* --- Luz & Meme o Meme & Luz: al azar en cada visita, y se invierte tocando el logo --- */
-let orden = Math.random() < .5 ? ["Luz", "Meme"] : ["Meme", "Luz"];
-function pintarNombres(){
-  document.querySelectorAll("[data-nombres]").forEach(el => {
-    el.innerHTML = `${orden[0]}<span class="amp">${esc(el.dataset.nombres)}</span>${orden[1]}`;
-  });
-  document.title = `${orden[0]} & ${orden[1]} — Dupla creativa`;
-}
-$("#logo").addEventListener("click", () => {
-  const l = $("#logo");
-  l.classList.remove("giro"); void l.offsetWidth; l.classList.add("giro");
-  setTimeout(() => { orden.reverse(); pintarNombres(); }, 250);
-});
-
-/* --- Nosotras --- */
-function linkPill(texto, url){
-  if (url) return `<a class="pill" href="${esc(url)}" target="_blank" rel="noopener">${esc(texto)} ↗</a>`;
-  return DUPLA.mostrarPendientes ? `<span class="pill falta">${esc(texto)} (falta link)</span>` : "";
-}
-$("#nosotrasGrid").innerHTML = NOSOTRAS.map(p => `
-  <article class="persona ${p.oliva === "negra" ? "negra" : "verde"}">
-    ${p.foto ? `<img class="foto" src="${esc(p.foto)}" alt="${esc(p.nombre)}">`
-             : `<svg class="foto-oliva"><use href="#oliva-${p.oliva === "negra" ? "verde" : "negra"}"/></svg>`}
-    <small>${esc(p.rol)}</small>
-    <h3>${esc(p.nombre)}</h3>
-    <p>${p.bio ? esc(p.bio) : pend("Bio corta: de dónde venís, qué te gusta hacer, dónde estudiaste o trabajaste.")}</p>
-    <div class="links">${linkPill("LinkedIn", p.linkedin)}${linkPill("CV", p.cv)}</div>
-  </article>`).join("");
-
-/* --- Portadas --- */
-const TEMAS = {
-  oliva: { bg: "var(--oliva)",      fg: "var(--crema)",      ol: "oliva-negra" },
-  bordo: { bg: "var(--bordo)",      fg: "var(--crema)",      ol: "oliva-verde" },
-  negra: { bg: "var(--tinta)",      fg: "var(--oliva-clara)",ol: "oliva-verde" },
-  crema: { bg: "#E6DABE",           fg: "var(--bordo)",      ol: "oliva-verde" },
-  clara: { bg: "var(--oliva-clara)",fg: "var(--oliva-osc)",  ol: "oliva-negra" }
-};
-function portada(p){
-  const t = TEMAS[p.tema] || TEMAS.oliva;
-  if (p.portada) return `<div class="portada" style="background:${t.bg}"><img src="${esc(p.portada)}" alt="${esc(p.titulo)}" loading="lazy"></div>`;
-  return `<div class="portada generada" style="background:${t.bg};color:${t.fg}">
-            <span class="portada-titulo">${esc(p.titulo)}</span>
-            <svg class="portada-oliva"><use href="#${t.ol}"/></svg>
-          </div>`;
-}
-
-/* --- Filtros y grilla --- */
-const cats = ["Todas", ...new Set(PROYECTOS.map(p => p.categoria).filter(Boolean))];
-let actual = "Todas";
-function pintarFiltros(){
-  $("#filtros").innerHTML = cats.map(c => `<button class="${c === actual ? "activo" : ""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
-}
-$("#filtros").addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b) return;
-  actual = b.dataset.cat; pintarFiltros(); pintarGrilla();
-});
-function pintarGrilla(){
-  $("#grid").innerHTML = PROYECTOS
-    .filter(p => actual === "Todas" || p.categoria === actual)
-    .map(p => `
-      <article class="card" tabindex="0" role="button" data-id="${esc(p.id)}" aria-label="Ver ${esc(p.titulo)}">
-        ${portada(p)}
-        <div class="card-body">
-          <div class="tag">${esc(p.categoria)}${p.marca && p.marca !== p.titulo ? " · " + esc(p.marca) : ""}</div>
-          <h3>${esc(p.titulo)}</h3>
-          <p>${esc(p.bajada)}</p>
-          ${p.premio ? `<span class="premio">★ ${esc(p.premio)}</span>` : ""}
-        </div>
-      </article>`).join("");
-}
-$("#grid").addEventListener("click", e => { const c = e.target.closest(".card"); if (c) abrir(c.dataset.id); });
-$("#grid").addEventListener("keydown", e => {
-  const c = e.target.closest(".card");
-  if (c && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); abrir(c.dataset.id); }
-});
-
-/* --- Piezas (imágenes y videos) --- */
-const ytId    = u => (String(u).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, u])[1];
-const vimeoId = u => (String(u).match(/vimeo\.com\/(?:video\/)?(\d+)/) || [, u])[1];
-const driveId = u => (String(u).match(/\/d\/([\w-]+)/) || [, u])[1];
-const NOMBRE_TIPO = { imagen: "imagen", video: "video", youtube: "video de YouTube", vimeo: "video de Vimeo", drive: "archivo de Drive" };
-
-function pieza(m){
-  const cls = ["media", m.formato === "vertical" ? "vertical" : "", m.ancho === "medio" ? "medio" : ""].join(" ");
-  const pie = m.texto ? `<figcaption>${esc(m.texto)}</figcaption>` : "";
-  if (!m.src) return DUPLA.mostrarPendientes
-    ? `<figure class="${cls}"><div class="hueco">＋ ${esc(m.texto || "Agregar pieza")}<small>${esc(NOMBRE_TIPO[m.tipo] || m.tipo)}</small></div></figure>` : "";
-  const titulo = esc(m.texto || "Video");
-  let el = "";
-  switch (m.tipo) {
-    case "imagen":  el = `<img src="${esc(m.src)}" alt="${esc(m.texto || "")}" loading="lazy">`; break;
-    case "video":   el = `<video src="${esc(m.src)}" controls playsinline preload="metadata"${m.poster ? ` poster="${esc(m.poster)}"` : ""}></video>`; break;
-    case "youtube": el = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(ytId(m.src))}" title="${titulo}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`; break;
-    case "vimeo":   el = `<iframe src="https://player.vimeo.com/video/${esc(vimeoId(m.src))}" title="${titulo}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>`; break;
-    case "drive":   el = `<iframe src="https://drive.google.com/file/d/${esc(driveId(m.src))}/preview" title="${titulo}" allow="autoplay" allowfullscreen loading="lazy"></iframe>`; break;
-  }
-  return `<figure class="${cls}">${el}${pie}</figure>`;
-}
-
-/* --- Detalle del proyecto --- */
-function bloque(titulo, txt){
-  if (!txt && !DUPLA.mostrarPendientes) return "";
-  return `<div class="bloque"><h4>${titulo}</h4><p>${txt ? esc(txt) : pend()}</p></div>`;
-}
-function abrir(id){
-  const i = PROYECTOS.findIndex(p => p.id === id);
-  if (i < 0) return;
-  const p = PROYECTOS[i];
-  const ant = PROYECTOS[(i - 1 + PROYECTOS.length) % PROYECTOS.length];
-  const sig = PROYECTOS[(i + 1) % PROYECTOS.length];
-
-  const meta = [["Marca", p.marca], ["Categoría", p.categoria], ["Año", p.anio], ["Reconocimiento", p.premio]]
-    .filter(([, v]) => v).map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
-
-  const titulares = (p.titulares || []).map((t, n) => t
-    ? `<blockquote>${esc(t)}</blockquote>`
-    : (DUPLA.mostrarPendientes ? `<blockquote class="vacio">Titular ${n + 1} — completar</blockquote>` : "")).join("");
-
-  const bloques = bloque("El reto", p.reto) + bloque("La idea", p.idea) + bloque("Resultado", p.resultado);
-  const piezas = (p.media || []).map(pieza).join("");
-  const extras = (p.extras || []).map(x => (x.texto || DUPLA.mostrarPendientes)
-    ? `<div class="extra"><h4 class="sub-titulo">${esc(x.titulo)}</h4><p>${x.texto ? esc(x.texto) : pend()}</p></div>` : "").join("");
-  const links = (p.links || []).map(l => l.url
-    ? `<a class="pill" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.texto)} ↗</a>`
-    : (DUPLA.mostrarPendientes ? `<span class="pill falta">${esc(l.texto)} (falta link)</span>` : "")).join("");
-
-  $("#modalContenido").innerHTML = `
-    ${portada(p)}
-    <div class="modal-body">
-      <div class="tag">${esc(p.categoria)}</div>
-      <h3 id="mTitulo">${esc(p.titulo)}</h3>
-      ${meta ? `<dl class="meta">${meta}</dl>` : ""}
-      ${p.descripcion ? `<p class="desc">${esc(p.descripcion)}</p>` : (DUPLA.mostrarPendientes ? `<p class="desc">${pend("Descripción del proyecto")}</p>` : "")}
-      ${p.concepto ? `<p class="concepto"><small>Concepto</small>${esc(p.concepto)}</p>`
-                   : (DUPLA.mostrarPendientes ? `<p class="concepto"><small>Concepto</small>${pend("El concepto en una frase")}</p>` : "")}
-      ${bloques ? `<div class="bloques">${bloques}</div>` : ""}
-      ${titulares ? `<h4 class="sub-titulo">Titulares</h4><div class="titulares">${titulares}</div>` : ""}
-      ${piezas ? `<div class="galeria">${piezas}</div>` : ""}
-      ${extras}
-      ${links ? `<div class="links-proy">${links}</div>` : ""}
-      <div class="navegar">
-        <button data-ir="${esc(ant.id)}">← ${esc(ant.titulo)}</button>
-        <button data-ir="${esc(sig.id)}">${esc(sig.titulo)} →</button>
+   </section>
+   <div class="ticker canva-banner" aria-hidden="true">
+    <span>Una idea lleva a la otra <b>✦</b> Una aceituna lleva a la otra <b>✦</b> Una idea lleva a la otra <b>✦</b> Una aceituna lleva a la otra <b>✦</b></span>
+   </div>
+   <section class="section canva-section" id="proyectos">
+    <div class="wrap">
+     <div class="section-heading reveal">
+      <div>
+       <div class="eyebrow">01 / Para mirar con tiempo</div>
+       <h2>Proyectos<span style="color:var(--red)">.</span></h2>
       </div>
-    </div>`;
-
-  $("#modal").classList.add("abierto");
-  $("#modal").scrollTop = 0;
-  document.body.style.overflow = "hidden";
-  history.replaceState(null, "", "#idea/" + p.id);   // link directo a cada caso
-  $("#cerrar").focus();
-}
-function cerrar(){
-  $("#modal").classList.remove("abierto");
-  document.body.style.overflow = "";
-  $("#modalContenido").innerHTML = "";   // corta videos que estén sonando
-  history.replaceState(null, "", "#ideas");
-}
-$("#cerrar").addEventListener("click", cerrar);
-$("#modal").addEventListener("click", e => {
-  if (e.target.id === "modal") cerrar();
-  const b = e.target.closest("[data-ir]"); if (b) abrir(b.dataset.ir);
-});
-document.addEventListener("keydown", e => { if (e.key === "Escape" && $("#modal").classList.contains("abierto")) cerrar(); });
-
-/* --- Contacto --- */
-$("#mail").textContent = DUPLA.email;
-$("#mail").href = "mailto:" + DUPLA.email;
-$("#redes").innerHTML = [["Instagram", DUPLA.instagram], ["Behance", DUPLA.behance]]
-  .filter(([, u]) => u).map(([t, u]) => `<a class="pill" href="${esc(u)}" target="_blank" rel="noopener">${t} ↗</a>`).join("");
-
-$("#form").addEventListener("submit", async e => {
-  e.preventDefault();
-  const f = e.target, d = new FormData(f), estado = $("#estado");
-  if (DUPLA.formspree) {
-    estado.textContent = "Enviando…";
-    try {
-      const r = await fetch(DUPLA.formspree, { method: "POST", body: d, headers: { Accept: "application/json" } });
-      estado.textContent = r.ok ? "¡Gracias! Te respondemos pronto." : "Ups, algo falló. Escribinos al mail.";
-      if (r.ok) f.reset();
-    } catch { estado.textContent = "Ups, algo falló. Escribinos al mail."; }
-  } else {
-    const asunto = encodeURIComponent("Proyecto" + (d.get("marca") ? " — " + d.get("marca") : ""));
-    const cuerpo = encodeURIComponent(`${d.get("mensaje") || ""}\n\n${d.get("nombre")} · ${d.get("email")}`);
-    location.href = `mailto:${DUPLA.email}?subject=${asunto}&body=${cuerpo}`;
+      <p>Ideas que salieron del frasco y se fueron a vivir al mundo.</p>
+     </div>
+     <div class="projects-grid" id="projects-grid"></div>
+    </div>
+   </section>
+   <div class="branch-divider" aria-hidden="true">
+    <svg viewBox="0 0 210 70" fill="none">
+     <path d="M8 55C70 46 134 33 202 12" stroke="currentColor" stroke-width="2" /><path d="M47 48C33 37 25 26 25 13C42 20 49 31 47 48ZM75 43C65 27 68 16 78 7C88 22 86 33 75 43ZM103 37C91 24 90 15 95 5C111 15 113 27 103 37ZM128 31C131 16 142 8 158 7C151 23 140 29 128 31ZM157 23C159 11 169 4 183 3C177 16 168 21 157 23Z" fill="currentColor" opacity=".8" />
+    </svg>
+   </div>
+   <section class="section about canva-section" id="nosotras">
+    <div class="wrap">
+     <div class="section-heading reveal">
+      <div>
+       <div class="eyebrow">02 / La combinación</div>
+       <h2>Nosotras<span style="color:var(--red)">.</span></h2>
+      </div>
+      <p>Una pone el ojo. La otra, las palabras. Las dos ponemos todo.</p>
+     </div>
+     <div class="people">
+      <article class="person canva-card reveal" id="profile-luz">
+       <div class="portrait" role="img" aria-label="Retrato ilustrado de Luz">
+        <svg viewBox="0 0 175 215" aria-hidden="true">
+         <path d="M22 215c5-58 34-80 66-80s60 22 65 80" fill="#657143" /><path d="M51 104c-14-57 13-85 40-84 34 1 48 30 33 84l-12 39H65Z" fill="#3e332d" /><ellipse cx="89" cy="100" rx="35" ry="46" fill="#d9a67f" /><path d="M54 86c-4-37 15-64 39-64 29 0 45 24 36 58-8-20-26-35-47-34-5 19-15 33-28 40Z" fill="#3e332d" /><path d="M71 99h9m18 0h9" stroke="#352c29" stroke-width="3" stroke-linecap="round" /><path d="M84 121q8 7 17 0" stroke="#8c554d" stroke-width="2" fill="none" />
+        </svg>
+       </div>
+       <div>
+        <h3>Luz</h3>
+        <p class="role">Directora de Arte</p>
+        <p class="bio">Veo una tipografía a tres cuadras y no puedo evitar comentarla. Me gustan las ideas que se sienten antes de explicarse. Si hay que mover algo dos píxeles, ya estoy en eso.</p>
+        <div class="person-links">
+         <a class="canva-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="canva-link" href="https://example.com/cv-luz" target="_blank" rel="noopener noreferrer">Ver CV ↗</a>
+        </div>
+       </div>
+      </article>
+      <article class="person canva-card reveal" id="profile-meme">
+       <div class="portrait" role="img" aria-label="Retrato ilustrado de Meme">
+        <svg viewBox="0 0 175 215" aria-hidden="true">
+         <path d="M18 215c5-57 38-79 70-79s61 22 69 79" fill="#782f45" /><path d="M49 116c-10-46-5-95 40-99 45 1 52 47 39 100l-17 27H62Z" fill="#382c30" /><ellipse cx="88" cy="98" rx="36" ry="46" fill="#e0af92" /><path d="M50 75C44 29 68 15 93 17c31 3 42 28 35 60-18-7-26-23-30-34-10 21-28 31-48 32Z" fill="#382c30" /><path d="M68 100h10m20 0h10" stroke="#352c29" stroke-width="3" stroke-linecap="round" /><path d="M81 121q9 9 19 0" stroke="#9c5657" stroke-width="2" fill="none" />
+        </svg>
+       </div>
+       <div>
+        <h3>Meme</h3>
+        <p class="role">Redactora</p>
+        <p class="bio">Pienso titulares en la fila del súper y anoto frases que probablemente nadie dijo. Me gustan las palabras precisas, los remates inesperados y las ideas que dejan algo dando vueltas.</p>
+        <div class="person-links">
+         <a class="canva-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="canva-link" href="https://example.com/cv-meme" target="_blank" rel="noopener noreferrer">Ver CV ↗</a>
+        </div>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section class="section lado-b canva-section" id="lado-b">
+    <div class="wrap">
+     <div class="section-heading reveal">
+      <div>
+       <div class="eyebrow">03 / Del otro lado del frasco</div>
+       <h2>Lado B<span style="color:#e7a399">.</span></h2>
+      </div>
+      <p>Cosas que hicimos porque sí. Que, honestamente, es una excelente razón.</p>
+     </div>
+     <div class="b-grid" id="lado-b-grid"></div>
+     <p class="b-foot">No todo tiene brief. Por suerte.</p>
+    </div>
+   </section>
+   <section class="contact canva-section" id="contacto">
+    <div class="wrap">
+     <div class="eyebrow">04 / La próxima idea empieza acá</div>
+     <h2>¿Un vermú y
+      <br>
+      lo charlamos?</h2>
+     <svg class="drink" viewBox="0 0 310 310" fill="none" role="img" aria-label="Ilustración editorial de una copa de vermú con aceituna">
+      <path d="M46 76h218L160 202 46 76Z" fill="#D7B9A2" stroke="#511E30" stroke-width="4" stroke-linejoin="round" /> <path d="M65 95h180L160 192 65 95Z" fill="#9D593F" opacity=".78" /> <path d="M160 201v81m-65 13h130m-65-13-65 13m65-13 65 13" stroke="#511E30" stroke-width="5" stroke-linecap="round" /> <path d="M38 69h234" stroke="#511E30" stroke-width="4" stroke-linecap="round" /> <path d="M104 28 218 137" stroke="#4C572A" stroke-width="5" stroke-linecap="round" /> <ellipse cx="180" cy="102" rx="20" ry="27" transform="rotate(-44 180 102)" fill="#78894B" stroke="#4C572A" stroke-width="3" /> <ellipse cx="180" cy="102" rx="7" ry="9" transform="rotate(-44 180 102)" fill="#C24A37" /> <path d="M74 110c33 22 73 35 110 32M101 151c25 13 44 17 59 18" stroke="#F5E9D0" stroke-width="2" opacity=".7" /> <path d="m34 156 6-13 6 13 13 6-13 6-6 13-6-13-13-6 13-6Zm231-18 4-9 4 9 9 4-9 4-4 9-4-9-9-4 9-4Z" fill="#C24A37" />
+     </svg>
+     <div class="contact-links">
+      <a class="canva-link" id="contact-email" href="mailto:hola@luzy meme.com">hola@luzymeme.com ↗</a> <a class="canva-link" id="contact-whatsapp" href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer">WhatsApp · +54 9 11 0000 0000 ↗</a>
+     </div>
+    </div>
+   </section>
+   <footer class="footer canva-footer">
+    <div class="wrap footer-inner">
+     <span>© Luz &amp; Meme · Hecho con ideas y aceitunas</span><a class="canva-link" href="#inicio">Volver arriba ↑</a>
+    </div>
+   </footer>
+  </main>
+  <main class="detail-view" id="detail-view" aria-live="polite">
+   <div class="wrap">
+    <button class="back-btn canva-button" id="back-to-projects" type="button"><i data-lucide="arrow-left"></i> Volver a proyectos</button>
+    <div class="detail-head">
+     <div>
+      <div class="eyebrow" id="detail-category"></div>
+      <h1 id="detail-title"></h1>
+     </div>
+     <p id="detail-intro"></p>
+    </div>
+    <div class="detail-cover" id="detail-cover"></div>
+    <div class="detail-content">
+     <h2>La idea detrás.</h2>
+     <p id="detail-description"></p>
+    </div>
+    <h2 class="media-heading" id="detail-media-title">Para verlo mejor.</h2>
+    <div class="media-grid" id="detail-media"></div>
+    <div id="detail-video"></div>
+    <div class="detail-next">
+     <span>Seguimos girando</span><button id="next-project" class="canva-button" type="button"></button>
+    </div>
+   </div>
+  </main>
+  <script>
+  /* Colecciones editables: agregá objetos a estos arrays para sumar piezas. */
+  const projects = [
+    {
+      slug:"loading-logo", title:"Loading logo...", category:"Digital · Premios Obrar", cover:"loading",
+      intro:"Un primer paso profesional merece algo más que un «mucha suerte».",
+      description:"Un welcome kit digital para jóvenes en busca de su primer empleo. La propuesta invita a compartirlo en LinkedIn como punto de partida para presentarse, generar redes y empezar a ocupar un espacio propio. Presentada a los Premios Obrar de Junior Achievement.",
+      media:["Board de campaña","Piezas del welcome kit"], video:"Videocaso"
+    },
+    {
+      slug:"alma-mora", title:"Gráficas Alma Mora", category:"Campaña gráfica · Vino", cover:"alma",
+      intro:"El amor tiene muchas formas. Y algunas merecen un buen titular.",
+      description:"Una campaña para el Día de los Enamorados construida a partir de distintos titulares largos bajo un mismo concepto. Cada pieza encuentra su propia voz sin perder de vista el universo y el concepto de marca de Alma Mora.",
+      media:["Gráfica 01","Gráfica 02","Gráfica 03","Gráfica 04"]
+    },
+    {
+      slug:"coppola", title:"Coppola", category:"Activaciones · Entretenimiento", cover:"coppola",
+      intro:"Una nueva temporada no se anuncia. Se hace notar.",
+      description:"Ideas de activación para el lanzamiento de la nueva temporada de la serie Coppola. Experiencias pensadas para sacar la conversación de la pantalla y llevarla a donde está la gente.",
+      media:["Activación 01","Activación 02","Registro de la experiencia"]
+    },
+    {
+      slug:"shorta", title:"Shorta", category:"Vía pública · Entretenimiento", cover:"shorta",
+      intro:"Historias verticales que se cruzan con vos en la calle.",
+      description:"Una propuesta de vía pública para Shorta, la app de series verticales. Piezas diseñadas para captar la atención en pocos segundos y abrirle camino a una idea de film.",
+      media:["Gráfica de vía pública 01","Gráfica de vía pública 02","Idea de film"], video:"Espacio para film"
+    },
+    {
+      slug:"rivadavia", title:"Hojas Rivadavia", category:"Producto · Diseño", cover:"rivadavia",
+      intro:"Una hoja en blanco también puede ser una gran idea.",
+      description:"Un producto pensado para Hojas Rivadavia. De la observación al objeto: una propuesta que convierte un gesto cotidiano en algo que dan ganas de usar, guardar y mostrar.",
+      media:["Vista de producto 01","Vista de producto 02","Detalles del producto"]
+    }
+  ];
+  const ladoB = [
+    {title:"Ideas sin permiso", caption:"Experimentos que no esperaron aprobación.", art:"¿Y si<br>sí?"},
+    {title:"Palabras sueltas", caption:"Frases que todavía buscan dónde vivir.", art:"Bla.<br>Bla.<br>Bien."},
+    {title:"Cosas nuestras", caption:"Pequeñas obsesiones, grandes desvíos.", art:"Fuera<br>de brief"}
+  ];
+  const coverHTML = {
+    loading:'<div class="cover-content cover-loading"><div class="loading-browser"><div class="browser-top"><i></i><i></i><i></i></div><div class="browser-body"><strong>loading<br>logo...</strong><div class="browser-bar"></div></div></div></div>',
+    alma:'<div class="cover-content cover-alma"><div class="alma-label"><small>Un brindis por</small><strong>Alma<br>Mora</strong><em>lo que nos pasa</em></div></div>',
+    coppola:'<div class="cover-content cover-coppola"><div class="coppola-disc"><strong>COP<br>POLA</strong><small>Una nueva temporada</small></div></div>',
+    shorta:'<div class="cover-content cover-shorta"><div class="phone"><div class="phone-screen"><strong>NO<br>PA-<br>RES.</strong></div></div></div>',
+    rivadavia:'<div class="cover-content cover-rivadavia"><div class="notebook"><strong>Todo<br>empieza<br>acá.</strong><span></span></div></div>'
+  };
+  const grid=document.getElementById("projects-grid");
+  projects.forEach((p,i)=>{
+    const article=document.createElement("article");
+    article.className="project-card canva-card reveal";
+    article.innerHTML=`<button class="project-button canva-button" type="button" aria-label="Ver proyecto ${p.title}"><div class="project-cover">${coverHTML[p.cover]}<div class="cover-overlay"><div class="overlay-olive"></div><span class="overlay-caption">Abrir proyecto ↗</span></div></div><div class="project-meta"><h3>${p.title}</h3><span>${p.category}</span></div></button>`;
+    const button=article.querySelector("button");
+    button.addEventListener("click",()=>{if(matchMedia("(hover: none)").matches&&!article.classList.contains("touched")){document.querySelectorAll(".project-card.touched").forEach(c=>c.classList.remove("touched"));article.classList.add("touched");return}openProject(i)});
+    grid.appendChild(article);
+  });
+  document.getElementById("lado-b-grid").innerHTML=ladoB.map(item=>`<article class="b-card canva-card reveal"><div class="b-art"><strong>${item.art}</strong></div><h3>${item.title}</h3><p>${item.caption}</p></article>`).join("");
+  let activeIndex=0;
+  function openProject(index){
+    activeIndex=index;const p=projects[index];
+    document.getElementById("home-view").classList.add("hidden");
+    const detail=document.getElementById("detail-view");detail.classList.add("active");
+    document.getElementById("detail-category").textContent=p.category;
+    document.getElementById("detail-title").textContent=p.title;
+    document.getElementById("detail-intro").textContent=p.intro;
+    document.getElementById("detail-description").textContent=p.description;
+    document.getElementById("detail-cover").innerHTML=coverHTML[p.cover];
+    document.getElementById("detail-media").innerHTML=p.media.map((m,i)=>`<div class="media-placeholder canva-panel"><span class="number">0${i+1}</span><div><strong>${m}</strong><br><small>Espacio para incorporar la pieza final</small></div></div>`).join("");
+    document.getElementById("detail-video").innerHTML=p.video?`<div class="video-slot canva-panel"><i data-lucide="play-circle"></i><strong>${p.video}</strong><p>Espacio preparado para incorporar el video cuando esté disponible. No se reproduce contenido de ejemplo.</p></div>`:"";
+    document.getElementById("next-project").textContent=projects[(index+1)%projects.length].title+" ↗";
+    document.title=p.title+" — Luz & Meme";
+    history.replaceState(null,"","#proyecto-"+p.slug);
+    window.scrollTo({top:0,behavior:"instant"});
+    lucide.createIcons();
   }
-});
-
-/* --- Arranque --- */
-$("#anio").textContent = new Date().getFullYear();
-pintarNombres();
-pintarFiltros();
-pintarGrilla();
-const deHash = location.hash.match(/^#idea\/(.+)$/);
-if (deHash) abrir(decodeURIComponent(deHash[1]));
+  function closeProject(){
+    document.getElementById("detail-view").classList.remove("active");
+    document.getElementById("home-view").classList.remove("hidden");
+    document.title="Luz & Meme — Portfolio creativo";
+    history.replaceState(null,"","#proyectos");
+    document.getElementById("proyectos").scrollIntoView({behavior:"smooth"});
+  }
+  document.getElementById("back-to-projects").addEventListener("click",closeProject);
+  document.getElementById("next-project").addEventListener("click",()=>openProject((activeIndex+1)%projects.length));
+  const menuButton=document.getElementById("menu-toggle"),mobileNav=document.getElementById("mobile-nav");
+  menuButton.addEventListener("click",()=>{const open=mobileNav.classList.toggle("open");menuButton.setAttribute("aria-expanded",String(open));menuButton.setAttribute("aria-label",open?"Cerrar menú":"Abrir menú");menuButton.innerHTML=open?'<i data-lucide="x"></i>':'<i data-lucide="menu"></i>';lucide.createIcons()});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const href=a.getAttribute("href");if(href==="#inicio"&&document.getElementById("detail-view").classList.contains("active")){e.preventDefault();closeProject();setTimeout(()=>document.getElementById("inicio").scrollIntoView({behavior:"smooth"}),50)}mobileNav.classList.remove("open");menuButton.setAttribute("aria-expanded","false");menuButton.setAttribute("aria-label","Abrir menú");menuButton.innerHTML='<i data-lucide="menu"></i>';lucide.createIcons()}));
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.08});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+  lucide.createIcons();
+  /* Reemplazar antes de publicar: el correo visible, el mailto, el teléfono y el wa.me. */
+  document.getElementById("contact-email").href="mailto:hola@luzymeme.com";
+  const initialSlug=location.hash.match(/^#proyecto-(.+)$/);
+  if(initialSlug){const index=projects.findIndex(p=>p.slug===initialSlug[1]);if(index>=0)openProject(index)}
 </script>
-</body>
+ </body>
 </html>
