@@ -1,0 +1,224 @@
+/* Dibujos de portada de cada proyecto (se usan en inicio y en las páginas de proyecto) */
+
+.cover-content {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-loading {
+  background: #ced8e5;
+  color: #253c71;
+}
+
+.loading-browser {
+  width: 70%;
+  background: #f4f3ef;
+  border: 2px solid #253c71;
+  box-shadow: 16px 16px 0 #253c71;
+  transform: rotate(-5deg);
+}
+
+.browser-top {
+  height: 30px;
+  border-bottom: 2px solid #253c71;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+.browser-top i {
+  height: 6px;
+  width: 6px;
+  background: #253c71;
+  border-radius: 50%;
+}
+
+.browser-body {
+  padding: 26px 28px 35px;
+}
+
+.browser-body strong {
+  font-size: clamp(32px,5vw,76px);
+  letter-spacing: -.09em;
+  line-height: .9;
+  display: block;
+  font-weight: 700;
+}
+
+.browser-bar {
+  margin-top: 25px;
+  height: 10px;
+  width: 80%;
+  border: 2px solid #253c71;
+}
+
+.browser-bar:before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 65%;
+  background: #ef7355;
+}
+
+.cover-alma {
+  background: #e9bac1;
+  color: #601729;
+}
+
+.alma-label {
+  width: 62%;
+  aspect-ratio: .85;
+  border-radius: 45% 45% 8px 8px;
+  background: #651b31;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: rotate(6deg);
+  color: #f8dfc5;
+  box-shadow: 17px 18px 0 #b64a5b;
+  text-align: center;
+  padding: 20px;
+}
+
+.alma-label small {
+  font-size: 12px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+}
+
+.alma-label strong {
+  font-family: "Fraunces",serif;
+  font-weight: 500;
+  font-size: clamp(44px,6vw,94px);
+  line-height: .9;
+  margin: 22px 0;
+}
+
+.alma-label em {
+  font-family: "Fraunces",serif;
+  font-size: 19px;
+}
+
+.cover-coppola {
+  background: #c99563;
+  color: #432820;
+}
+
+.coppola-disc {
+  width: 72%;
+  aspect-ratio: 1;
+  border: 3px solid #432820;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 17px #d9ae80,0 0 0 20px #432820;
+  transform: rotate(-12deg);
+}
+
+.coppola-disc strong {
+  font-family: "Fraunces",serif;
+  text-transform: uppercase;
+  font-size: clamp(40px,6vw,95px);
+  line-height: .8;
+  text-align: center;
+  letter-spacing: -.07em;
+}
+
+.coppola-disc small {
+  position: absolute;
+  bottom: 17%;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.cover-shorta {
+  background: #ade2e6;
+  color: #15163b;
+}
+
+.phone {
+  height: 83%;
+  aspect-ratio: .51;
+  background: #15163b;
+  border: 8px solid #15163b;
+  border-radius: 33px;
+  transform: rotate(11deg);
+  box-shadow: 20px 15px 0 rgba(21,22,59,.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.phone-screen {
+  height: 100%;
+  background: #e86951;
+  padding: 18% 8% 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-screen strong {
+  font-family: "DM Sans",sans-serif;
+  font-size: clamp(39px,5vw,77px);
+  font-weight: 700;
+  line-height: .85;
+  letter-spacing: -.1em;
+  color: #15163b;
+  transform: rotate(-8deg);
+}
+
+.phone-screen:after {
+  content: "▶";
+  position: absolute;
+  bottom: 13%;
+  left: 43%;
+  font-size: 28px;
+  color: white;
+}
+
+.cover-rivadavia {
+  background: #e4d7b5;
+  color: #314a82;
+}
+
+.notebook {
+  width: 61%;
+  height: 75%;
+  background: #f9f5e8;
+  border: 3px solid #314a82;
+  box-shadow: 17px 17px 0 #314a82;
+  transform: rotate(-8deg);
+  padding: 13% 7% 5%;
+  position: relative;
+}
+
+.notebook:before {
+  content: "";
+  position: absolute;
+  left: 11%;
+  top: 0;
+  bottom: 0;
+  border-left: 2px solid #dd7975;
+}
+
+.notebook strong {
+  font-family: "Fraunces",serif;
+  font-size: clamp(30px,4vw,63px);
+  line-height: .95;
+  display: block;
+}
+
+.notebook span {
+  display: block;
+  margin-top: 22%;
+  height: 1px;
+  background: #8cadd4;
+  box-shadow: 0 17px #8cadd4,0 34px #8cadd4,0 51px #8cadd4;
+}
