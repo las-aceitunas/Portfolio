@@ -50,8 +50,8 @@
 }
 
 .detail-head h1 {
-  font-size: clamp(65px,10vw,150px);
-  line-height: .86;
+  font-size: clamp(16px,3.7vw,60px);
+  line-height: 1.05;
   color: var(--olive);
   margin: 12px 0 0;
 }
@@ -100,6 +100,12 @@
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap: 20px;
+}
+
+.media-full {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .media-placeholder {
@@ -196,18 +202,20 @@
   color: var(--wine);
 }
 
-@media (max-width:650px) {
-  .detail-view {
-    padding-top: 105px;
-  }
-
+@media (max-width:900px) {
   .detail-head {
     display: block;
   }
 
   .detail-head h1 {
-    font-size: 65px;
-    margin-bottom: 25px;
+    font-size: clamp(15px,5vw,44px);
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width:650px) {
+  .detail-view {
+    padding-top: 105px;
   }
 
   .detail-cover {
