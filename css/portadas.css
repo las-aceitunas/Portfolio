@@ -9,100 +9,12 @@
   overflow: hidden;
 }
 
-.cover-loading {
-  background: #ced8e5;
-  color: #253c71;
-}
-
-.loading-browser {
-  width: 70%;
-  background: #f4f3ef;
-  border: 2px solid #253c71;
-  box-shadow: 16px 16px 0 #253c71;
-  transform: rotate(-5deg);
-}
-
-.browser-top {
-  height: 30px;
-  border-bottom: 2px solid #253c71;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 12px;
-}
-
-.browser-top i {
-  height: 6px;
-  width: 6px;
-  background: #253c71;
-  border-radius: 50%;
-}
-
-.browser-body {
-  padding: 26px 28px 35px;
-}
-
-.browser-body strong {
-  font-size: clamp(32px,5vw,76px);
-  letter-spacing: -.09em;
-  line-height: .9;
-  display: block;
-  font-weight: 700;
-}
-
-.browser-bar {
-  margin-top: 25px;
-  height: 10px;
-  width: 80%;
-  border: 2px solid #253c71;
-}
-
-.browser-bar:before {
-  content: "";
-  display: block;
+.cover-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  width: 65%;
-  background: #ef7355;
-}
-
-.cover-alma {
-  background: #e9bac1;
-  color: #601729;
-}
-
-.alma-label {
-  width: 62%;
-  aspect-ratio: .85;
-  border-radius: 45% 45% 8px 8px;
-  background: #651b31;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transform: rotate(6deg);
-  color: #f8dfc5;
-  box-shadow: 17px 18px 0 #b64a5b;
-  text-align: center;
-  padding: 20px;
-}
-
-.alma-label small {
-  font-size: 12px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-}
-
-.alma-label strong {
-  font-family: "Fraunces",serif;
-  font-weight: 500;
-  font-size: clamp(44px,6vw,94px);
-  line-height: .9;
-  margin: 22px 0;
-}
-
-.alma-label em {
-  font-family: "Fraunces",serif;
-  font-size: 19px;
+  object-fit: cover;
 }
 
 .cover-coppola {

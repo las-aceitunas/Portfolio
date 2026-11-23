@@ -72,6 +72,17 @@
   height: 100%;
 }
 
+.detail-gallery {
+  display: grid;
+  gap: 20px;
+}
+
+.detail-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .detail-content {
   display: grid;
   grid-template-columns: .6fr 1.4fr;
