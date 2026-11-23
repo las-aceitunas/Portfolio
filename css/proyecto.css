@@ -129,6 +129,23 @@
   height: auto;
 }
 
+/* El gif (1152x648) trae bordes blancos: se recortan 11px arriba, 11 a la izquierda,
+   1 a la derecha y 13 abajo, y queda visible un área de 1140x624 */
+.gif-corcho {
+  position: relative;
+  aspect-ratio: 1140 / 624;
+  overflow: hidden;
+}
+
+.gif-corcho img {
+  position: absolute;
+  top: calc(-11 / 624 * 100%);
+  left: calc(-11 / 1140 * 100%);
+  width: calc(1152 / 1140 * 100%);
+  max-width: none;
+  height: auto;
+}
+
 .media-placeholder {
   min-height: 290px;
   padding: 30px;
