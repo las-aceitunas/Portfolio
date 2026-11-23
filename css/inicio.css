@@ -14,7 +14,7 @@
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1.06fr .94fr;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 2vw;
 }
@@ -99,7 +99,10 @@
 }
 
 .hero-art {
-  height: min(650px,60vw);
+  /* Nunca más alta que la pantalla: se descuentan el header y los márgenes */
+  height: clamp(220px,calc(100svh - 120px),min(720px,60vw));
+  margin-top: -24px;
+  align-self: start;
   position: relative;
   display: grid;
   place-items: center;
@@ -111,6 +114,24 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  animation: estampilla 3.5s ease-in-out infinite alternate;
+}
+
+/* Se inclina apenas hacia un lado y otro */
+@keyframes estampilla {
+  from {
+    transform: rotate(-3deg);
+  }
+
+  to {
+    transform: rotate(3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art img {
+    animation: none;
+  }
 }
 
 .hero-note {
@@ -137,9 +158,32 @@
   font-size: 19px;
 }
 
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 20s linear infinite;
+}
+
 .ticker span {
-  display: inline-block;
-  padding-left: 30px;
+  flex: none;
+  white-space: pre;
+}
+
+/* Se mueve hacia la derecha: la pista son dos mitades iguales, por eso el loop no se nota */
+@keyframes ticker {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
 }
 
 .ticker b {
@@ -215,7 +259,7 @@
   position: absolute;
   inset: 0;
   z-index: 3;
-  background: rgba(76,87,42,.84);
+  background: rgba(81,30,48,.78); /* bordó: el último número es la opacidad */
   opacity: 0;
   transition: opacity .35s;
   pointer-events: none;
@@ -229,32 +273,21 @@
   opacity: 1;
 }
 
-.overlay-olive {
-  width: 105px;
-  height: 145px;
-  background: #9da76a;
-  border: 4px solid #e6e3c7;
-  border-radius: 50%;
-  transform: translate(-160px,180px) rotate(-40deg);
-  transition: transform .5s cubic-bezier(.2,.8,.2,1);
-  box-shadow: inset -13px -12px 0 rgba(0,0,0,.13);
-}
-
-.overlay-olive:after {
-  content: "";
-  width: 29px;
-  height: 35px;
+/* Trazos en crema con fondo transparente; arranca un poco más grande y se acomoda */
+.overlay-art {
   position: absolute;
-  background: var(--red);
-  border-radius: 50%;
-  left: 34px;
-  top: 51px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1);
 }
 
-.project-button:hover .overlay-olive,
-.project-button:focus-visible .overlay-olive,
-.project-card.touched .overlay-olive {
-  transform: translate(0,0) rotate(20deg);
+.project-button:hover .overlay-art,
+.project-button:focus-visible .overlay-art,
+.project-card.touched .overlay-art {
+  transform: scale(1.02);
 }
 
 .overlay-caption {
@@ -575,6 +608,10 @@
     min-height: 720px;
   }
 
+  .hero-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .hero h1 {
     font-size: clamp(77px,12vw,120px);
   }
@@ -632,8 +669,9 @@
 
   .hero-art {
     order: 0;
-    height: 420px;
-    margin-bottom: 28px;
+    height: clamp(220px,calc(100svh - 130px),440px);
+    margin-top: -14px;
+    margin-bottom: 20px;
     align-self: center;
     width: min(100%,390px);
   }

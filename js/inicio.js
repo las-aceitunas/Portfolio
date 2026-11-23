@@ -17,3 +17,23 @@ if (oldLink) {
   const link = document.querySelector(`.project-card a[href="proyectos/${oldLink[1]}.html"]`);
   if (link) location.replace(link.href);
 }
+
+// Banda con texto deslizante: repite el texto hasta cubrir la pantalla y lo mueve sin fin
+const tickerSpeed = 40; // píxeles por segundo
+const tickerTrack = document.querySelector(".ticker-track");
+const tickerText = tickerTrack.firstElementChild;
+
+function setTicker() {
+  const textWidth = tickerText.getBoundingClientRect().width;
+  if (!textWidth) return;
+  const copies = Math.ceil(innerWidth * 1.1 / textWidth);
+  if (tickerTrack.children.length !== copies * 2) {
+    tickerTrack.replaceChildren(tickerText);
+    for (let i = 1; i < copies * 2; i++) tickerTrack.append(tickerText.cloneNode(true));
+  }
+  tickerTrack.style.animationDuration = `${tickerText.offsetWidth * copies / tickerSpeed}s`;
+}
+
+setTicker();
+document.fonts.ready.then(setTicker);
+addEventListener("resize", setTicker);
