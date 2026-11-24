@@ -129,7 +129,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-art img {
+  .hero-art img,
+  .drink {
     animation: none;
   }
 }
@@ -553,35 +554,44 @@
 }
 
 .contact {
-  text-align: center;
   padding: 125px 0 90px;
 }
 
-.contact .eyebrow {
+.contact-inner {
+  display: grid;
+  grid-template-columns: minmax(0,max-content) clamp(140px,14vw,200px);
   justify-content: center;
+  align-items: center;
+  gap: clamp(28px,6vw,90px);
+}
+
+.contact .eyebrow {
   color: var(--wine);
 }
 
 .contact h2 {
-  font-size: clamp(68px,11vw,160px);
-  line-height: .9;
+  font-size: clamp(40px,6.2vw,96px);
+  line-height: .95;
   color: var(--olive);
-  max-width: 1050px;
-  margin: 24px auto 5px;
+  margin: 24px 0 44px;
+}
+
+.contact .vermu {
+  color: var(--wine);
 }
 
 .drink {
-  width: min(310px,55vw);
+  display: block;
+  width: 100%;
   height: auto;
-  margin: 0 auto 12px;
+  animation: estampilla 3.5s ease-in-out infinite alternate;
 }
 
 .contact-links {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px 50px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .contact-links a {
@@ -771,12 +781,18 @@
   }
 
   .contact h2 {
-    font-size: clamp(62px,13vw,95px);
+    font-size: clamp(40px,12.5vw,76px);
+    margin-bottom: 32px;
   }
 
-  .contact-links {
-    flex-direction: column;
-    gap: 20px;
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .drink {
+    width: 150px;
+    margin: 0 auto;
   }
 }
 
