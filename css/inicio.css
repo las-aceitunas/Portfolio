@@ -260,7 +260,6 @@
   position: absolute;
   inset: 0;
   z-index: 3;
-  background: rgba(81,30,48,.78); /* bordó: el último número es la opacidad */
   opacity: 0;
   transition: opacity .35s;
   pointer-events: none;
@@ -274,13 +273,15 @@
   opacity: 1;
 }
 
-/* Trazos en crema con fondo transparente; arranca un poco más grande y se acomoda */
+/* La transparencia viene en la imagen; arranca un poco más grande y se acomoda */
 .overlay-art {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 0;
+  transform-origin: 50% 0;
   transform: scale(1.12);
   transition: transform .5s cubic-bezier(.2,.8,.2,1);
 }
@@ -293,9 +294,12 @@
 
 .overlay-caption {
   position: absolute;
-  bottom: 27px;
-  right: 28px;
-  color: white;
+  bottom: 22px;
+  right: 22px;
+  padding: 9px 15px;
+  border-radius: 100px;
+  background: var(--wine);
+  color: var(--cream);
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: .2em;
