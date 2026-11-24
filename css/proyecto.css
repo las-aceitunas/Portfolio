@@ -232,6 +232,17 @@
   height: auto;
 }
 
+/* Board con un poco de margen; al alejar el zoom se achica (tope de 1720px) y al acercarlo se agranda (js/board.js) */
+.board {
+  width: min(100% - 2*clamp(16px,3vw,48px),1720px);
+  margin-inline: auto;
+  overflow-x: auto;
+}
+
+.board .media-full {
+  min-width: var(--board,0);
+}
+
 /* El gif (1152x648) trae bordes blancos: se recortan 11px arriba, 11 a la izquierda,
    1 a la derecha y 13 abajo, y queda visible un área de 1140x624 */
 .gif-corcho {
